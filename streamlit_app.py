@@ -530,7 +530,7 @@ def libraryScene():
         "You enter Dragon Valut, but instead of gold, you find a Streamlit documentation library!"
     )
     st.subheader(
-        "All the power is now in your hands. Would you make the documenation available for others? Or keep it tight and make the most sick app in the world? The possibilities offered by Streamlit amaze you."
+        "All the power is now in your hands. Would you make the documentation available for others? Or keep it only for yourself and make the sickest app in the world? The possibilities offered by Streamlit amaze you."
     )
     st.subheader(
         "One man once said that with great power comes great responsibility (he was talking to a spider, but whatever)"
