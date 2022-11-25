@@ -185,6 +185,7 @@ def sheepScene():
         # ---PET THE SHEEP ---
         # ---------------------
         if scene_action.lower() == "pet":
+
             # progress bar for petting sheep
             my_bar = st.empty()
             my_bar.progress(0)
@@ -195,9 +196,16 @@ def sheepScene():
             my_bar.empty()
 
             # --- Sheep shares his wealth ---
+            random_gold = random.randint(4, 8)
+
             if st.session_state.sheep_anger < 5:
-                st.write("Sheep goes: streeeeaaamlit and gives you 5 coins")
-                st.session_state.gold = st.session_state.gold + 5
+
+                st.write(
+                    "Sheep goes: streeeeaaamlit and gives you "
+                    + str(random_gold)
+                    + " coins"
+                )
+                st.session_state.gold = st.session_state.gold + random_gold
             # --- Sheep becomes angrier ---
             st.session_state.sheep_anger = st.session_state.sheep_anger + 1
             if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
