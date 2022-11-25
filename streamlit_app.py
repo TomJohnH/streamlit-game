@@ -5,6 +5,10 @@ from streamlit_extras.metric_cards import style_metric_cards
 import time
 import random
 
+# -------------- app config ---------------
+
+st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
+
 ###############################################
 #
 #
