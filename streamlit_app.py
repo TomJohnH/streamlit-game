@@ -68,13 +68,13 @@ def introScene():
     scene_action = directions_container.text_input(
         "What to do?", key="introSceneActions"
     )
-    if scene_action in directions:
-        if scene_action == "left":
+    if scene_action.lower() in directions:
+        if scene_action.lower() == "left":
             st.session_state.place = "sheepScene"
             st.experimental_rerun()
 
     if scene_action in directions:
-        if scene_action == "right":
+        if scene_action.lower() == "right":
             st.write("Large tree is blocking this way.")
 
     else:
@@ -120,13 +120,13 @@ def sheepScene():
     scene_action = directions_container.text_input(
         "What to do?", key="sheepSceneActions"
     )
-    if scene_action in directions:
-        if scene_action == "left":
+    if scene_action.lower() in directions:
+        if scene_action.lower() == "left":
             st.write("There is nothing there")
-        if scene_action == "back" or scene_action == "right":
+        if scene_action.lower() == "back" or scene_action.lower() == "right":
             st.session_state.place = "introScene"
             st.experimental_rerun()
-    if scene_action == "pet":
+    if scene_action.lower() == "pet":
         if st.session_state.sheep_anger < 5:
             st.write("Sheep goes: streeeeaaamlit and gives you 5 coins")
             st.session_state.gold = st.session_state.gold + 5
