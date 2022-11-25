@@ -94,7 +94,7 @@ def introScene():
 
     # main_image
     st.image(
-        "https://images.unsplash.com/photo-1429743305873-d4065c15f93e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80"
+        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/jens-lelie-u0vgcIOQG08-unsplash.jpg"
     )
 
     # scene text
@@ -148,7 +148,7 @@ def sheepScene():
 
     # main_image
     st.image(
-        "https://images.unsplash.com/photo-1484557985045-edf25e08da73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80"
+        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/sam-carter-GHOiyov2TSQ-unsplash.jpg"
     )
 
     st.subheader("You see a sheep. Go on, try to pet it.")
@@ -250,7 +250,7 @@ def caveScene():
 
     # main_image
     st.image(
-        "https://images.unsplash.com/photo-1621622658048-f9f0dbd11c46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/salome-guruli-CpwEKoEvGQA-unsplash.jpg"
     )
 
     # scene text
@@ -319,12 +319,12 @@ def poScene():
 
     # main_image
     st.image(
-        "https://images.unsplash.com/photo-1527043604258-3f1c4fcce3f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/francisco-perez-carrasco-QxQ5D0GP0R8-unsplash.jpg"
     )
 
     # scene text
     st.subheader(
-        'In the dark you see young man. "I used to be a product manager" - he says. "But then I put comments in the Jira, clicked something and I did not save." - he mubles. "Now I sell swords...30 gold seems to be a good price! Ah...remeber that if you go right you will meet dragon! Left will lead you to the exit." '
+        'In the dark you see young man. "I used to be a product manager" - he says. "But then I put comments in the Jira, clicked something and it did not save." - he mubles. "Now I sell swords...30 gold seems to be a good price! Ah...remeber that if you go right you will meet dragon! Left will lead you to the exit." '
     )
 
     directions_container = st.empty()
@@ -402,7 +402,7 @@ def dragonScene():
         st.write("")
 
     with col2:
-        st.image("https://i.ibb.co/nfY7Qph/output.jpg")
+        st.image("https://raw.githubusercontent.com/TomJohnH/cv/main/img/output.jpg")
 
     with col3:
         st.write("")
@@ -459,7 +459,7 @@ def dragonScene():
                 if st.session_state.dragon_alive == 1:
 
                     st.write(
-                        "Your matrix multiplication skills are better than dragons. Who would know that that algebra classess will come usefull afterall."
+                        "Your matrix multiplication skills are better than dragons. Who would have guessed that these algebra classes would be useful after all?"
                     )
                     damage = random.randint(5, 10)
                     st.write("Dragon loses " + str(damage) + " HP")
@@ -474,9 +474,9 @@ def dragonScene():
                     st.session_state["health"] = st.session_state["health"] - damage
                     if st.session_state["dragon_hp"] <= 0:
                         st.session_state.dragon_alive = 0
-                        st.write("DRAGON IS DEAD or at least for you")
+                        st.write("DRAGON IS DEAD or at least to you")
                 else:
-                    st.write("DRAGON IS DEAD or at least for you")
+                    st.write("DRAGON IS DEAD or at least to you")
 
             if scene_action.lower() == "up":
                 if st.session_state.dragon_alive == 1:
@@ -520,20 +520,20 @@ def libraryScene():
 
     # main_image
     st.image(
-        "https://images.unsplash.com/photo-1600431521340-491eca880813?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/ryunosuke-kikuno-FKqxZ58bVjU-unsplash.jpg"
     )
 
     # scene text
     st.snow()
     st.title("Congratulations " + st.session_state.player_name + "!")
     st.subheader(
-        "You enter Dragon Valut, but instead of gold you found...streamlit documentation library!"
+        "You enter Dragon Valut, but instead of gold, you find a Streamlit documentation library!"
     )
     st.subheader(
-        "All the power is now in your hands. Would you make the documenation available for others? Or keep it tight and make the most sick app in the world? You feel amazed about the opportunites you will have using streamlit."
+        "All the power is now in your hands. Would you make the documenation available for others? Or keep it tight and make the most sick app in the world? The possibilities offered by Streamlit amaze you."
     )
     st.subheader(
-        "One man once said that with great power comes great responsibility (he was talking to the spider but whatever)"
+        "One man once said that with great power comes great responsibility (he was talking to a spider, but whatever)"
     )
     st.subheader("Use your new power wisely.")
     st.success("Thank you for playing SteamlitLand Adventure RPG!")
