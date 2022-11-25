@@ -72,8 +72,6 @@ def introScene():
         if scene_action.lower() == "left":
             st.session_state.place = "sheepScene"
             st.experimental_rerun()
-
-    if scene_action in directions:
         if scene_action.lower() == "right":
             st.write("Large tree is blocking this way.")
 
@@ -121,25 +119,36 @@ def sheepScene():
         "What to do?", key="sheepSceneActions"
     )
     if scene_action.lower() in directions:
+        # --- LEFT ---
+        # ------------
         if scene_action.lower() == "left":
             st.write("There is nothing there")
+        # --- BACK OR RIGHT ---
+        # ---------------------
         if scene_action.lower() == "back" or scene_action.lower() == "right":
             st.session_state.place = "introScene"
             st.experimental_rerun()
-    if scene_action.lower() == "pet":
-        if st.session_state.sheep_anger < 5:
-            st.write("Sheep goes: streeeeaaamlit and gives you 5 coins")
-            st.session_state.gold = st.session_state.gold + 5
-        st.session_state.sheep_anger = st.session_state.sheep_anger + 1
-        if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
-            st.write("Sheep is becoming a little bit anoyed ")
-        if st.session_state.sheep_anger == 5:
-            st.write("Sheep has enough of pets and bites your arm off. You lose 50 HP!")
-            st.session_state.health = st.session_state.health - 50
-        if st.session_state.sheep_anger > 10:
-            st.write(
-                'Sheep states in unusal low, human voice: "Violence is not an answer but it could be if you dont stop"'
-            )
+        # ---PET THE SHEEP ---
+        # ---------------------
+        if scene_action.lower() == "pet":
+            # --- Sheep shares his wealth ---
+            if st.session_state.sheep_anger < 5:
+                st.write("Sheep goes: streeeeaaamlit and gives you 5 coins")
+                st.session_state.gold = st.session_state.gold + 5
+            # --- Sheep becomes angrier ---
+            st.session_state.sheep_anger = st.session_state.sheep_anger + 1
+            if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
+                st.write("Sheep is becoming a little bit anoyed ")
+            # --- too much pets ---
+            if st.session_state.sheep_anger == 5:
+                st.write(
+                    "Sheep has enough of pets and bites your arm off. You lose 50 HP!"
+                )
+                st.session_state.health = st.session_state.health - 50
+            if st.session_state.sheep_anger > 10:
+                st.write(
+                    'Sheep states in unusal low, human voice: "Violence is not an answer but it could be if you dont stop"'
+                )
 
     else:
         # what should happen if wrong action is selected
