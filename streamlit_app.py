@@ -414,7 +414,7 @@ def dragonScene():
 
     if st.session_state.sword == 0:
         st.write(
-            "Dragon uses matrix multiplication and you get hit in the head by lose neuron. You don't have anything to defend yourself."
+            "Dragon uses matrix multiplication and you get hit in the head by loose neuron. You don't have anything to defend yourself."
         )
         st.write(
             "Unfortunatelly this is were your adventure ends. But could you have done something differently?"
