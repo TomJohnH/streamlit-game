@@ -122,7 +122,7 @@ def introScene():
     else:
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("Please provide right intput")
+            st.info("Please provide right input")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -224,7 +224,7 @@ def sheepScene():
     else:
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("Please provide right intput")
+            st.info("Please provide right input")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -293,7 +293,7 @@ def caveScene():
     else:
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("Please provide right intput")
+            st.info("Please provide right input")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -370,7 +370,7 @@ def poScene():
     else:
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("Please provide right intput")
+            st.info("Please provide right input")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -494,7 +494,7 @@ def dragonScene():
         else:
             # what should happen if wrong action is selected
             if scene_action != "":
-                st.info("Please provide right intput")
+                st.info("Please provide right input")
                 dir = f'Potential actions: {", ".join(directions)}'
                 stoggle("Help", dir)
                 st.write("")
@@ -560,7 +560,7 @@ def libraryScene():
     # else:
     #     # what should happen if wrong action is selected
     #     if scene_action != "":
-    #         st.info("Please provide right intput")
+    #         st.info("Please provide right input")
     #         dir = f'Potential actions: {", ".join(directions)}'
     #         stoggle("Help", dir)
     #         st.write("")
