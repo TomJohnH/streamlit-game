@@ -90,7 +90,7 @@ def introScene():
     welcome.empty()
 
     # possible actions
-    directions = ["left", "right"]
+    directions = ["left", "right", "help"]
 
     # main_image
     st.image(
@@ -104,12 +104,26 @@ def introScene():
         + ", to an unusual world of fantasy. All the decisions that you made until this point in your life led you to this moment. Choose your actions wisely!"
     )
     directions_container = st.empty()
-    st.caption("Use mouse or [Tab] to focus on input field")
-    # st.session_state
-    scene_action = directions_container.text_input(
-        "What to do?", key="introSceneActions"
+    st.caption(
+        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
     )
+    # st.session_state
+    # scene_action = directions_container.text_input(
+    #     "What to do?", key="introSceneActions"
+    # )
+
+    directions_container.text_input(
+        "What to do?",
+        key="introSceneActions",
+        on_change=clear,
+        args=["introSceneActions"],
+    )
+
+    scene_action = st.session_state["temp"]
+
     if scene_action.lower() in directions:
+        if scene_action.lower() == "help":
+            st.write(f'Potential actions: {", ".join(directions)}')
         if scene_action.lower() == "left":
             st.session_state.place = "sheepScene"
             temp_clear()
@@ -144,7 +158,7 @@ def sheepScene():
     welcome.empty()
 
     # possible actions
-    directions = ["left", "right", "forward", "back", "pet"]
+    directions = ["left", "right", "back", "pet", "help"]
 
     # main_image
     st.image(
@@ -156,6 +170,9 @@ def sheepScene():
     # for some reason we have here lenghty interaciton with sheep
 
     directions_container = st.empty()
+    st.caption(
+        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
+    )
 
     # scene_action = directions_container.text_input(
     #     "What to do?", key="sheepSceneActions", on_change=clear
@@ -172,6 +189,8 @@ def sheepScene():
     scene_action = st.session_state["temp"]
 
     if scene_action.lower() in directions:
+        if scene_action.lower() == "help":
+            st.write(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
         # ------------
         if scene_action.lower() == "left":
@@ -216,9 +235,15 @@ def sheepScene():
                     "Sheep has enough of pets and bites your arm off. You lose 50 HP!"
                 )
                 st.session_state.health = st.session_state.health - 50
-            if st.session_state.sheep_anger > 10:
+            if st.session_state.sheep_anger > 5 and st.session_state.sheep_anger < 10:
+                random_number_of_dots = random.randint(3, 20)
+                annoyed_sheep = (
+                    "".join("." for i in range(random_number_of_dots)) + "no"
+                )
+                st.write(annoyed_sheep)
+            if st.session_state.sheep_anger >= 10:
                 st.write(
-                    'Sheep states in unusal low, human voice: "Violence is not an answer but it could be if you dont stop"'
+                    'Sheep states in unusal low, human voice: "Violence is not an answer but it could be if you don\'t stop"'
                 )
 
     else:
@@ -246,7 +271,7 @@ def caveScene():
     welcome.empty()
 
     # possible actions
-    directions = ["up", "back"]
+    directions = ["up", "back", "help"]
 
     # main_image
     st.image(
@@ -258,12 +283,15 @@ def caveScene():
         "After walking for 2 hours in the forest you encounter dark cave. They say that If you stare into the abyss, the abyss stares back at you. Something shiny seems to flicker in the cave. Are you afraid of the dark?"
     )
 
+    directions_container = st.empty()
+    st.caption(
+        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
+    )
+
     if st.session_state["forest_trip"] == 0:
         st.write("You feel exhausted  and lose -5HP")
         st.session_state.health = st.session_state.health - 5
         st.session_state["forest_trip"] = 1
-
-    directions_container = st.empty()
 
     # st.session_state
     # scene_action = directions_container.text_input(
@@ -280,6 +308,8 @@ def caveScene():
     scene_action = st.session_state["temp"]
 
     if scene_action.lower() in directions:
+        if scene_action.lower() == "help":
+            st.write(f'Potential actions: {", ".join(directions)}')
         if scene_action.lower() == "back":
             st.session_state.place = "introScene"
             temp_clear()
@@ -315,7 +345,7 @@ def poScene():
     welcome.empty()
 
     # possible actions
-    directions = ["left", "right", "back", "buy"]
+    directions = ["left", "right", "back", "buy", "help"]
 
     # main_image
     st.image(
@@ -328,6 +358,9 @@ def poScene():
     )
 
     directions_container = st.empty()
+    st.caption(
+        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
+    )
 
     # # st.session_state
     # scene_action = directions_container.text_input(
@@ -344,6 +377,8 @@ def poScene():
     scene_action = st.session_state["temp"]
 
     if scene_action.lower() in directions:
+        if scene_action.lower() == "help":
+            st.write(f'Potential actions: {", ".join(directions)}')
         if scene_action.lower() == "left":
             st.session_state.place = "dragonScene"
             temp_clear()
@@ -392,7 +427,7 @@ def dragonScene():
     welcome.empty()
 
     # possible actions
-    directions = ["fight", "up", "back"]
+    directions = ["fight", "up", "back", "help"]
 
     # main_image
 
@@ -430,6 +465,9 @@ def dragonScene():
             "Fortunatelly you have a sword so you can defend yourself from the dragon! Do you wanna fight it?"
         )
         directions_container = st.empty()
+        st.caption(
+            'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
+        )
 
         # # st.session_state
         # scene_action = directions_container.text_input(
@@ -448,6 +486,8 @@ def dragonScene():
         scene_action = st.session_state["temp"]
 
         if scene_action.lower() in directions:
+            if scene_action.lower() == "help":
+                st.write(f'Potential actions: {", ".join(directions)}')
             if scene_action.lower() == "fight":
                 my_bar = st.empty()
                 my_bar.progress(0)
