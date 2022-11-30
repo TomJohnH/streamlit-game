@@ -243,7 +243,7 @@ def sheepScene():
                 st.write(annoyed_sheep)
             if st.session_state.sheep_anger >= 10:
                 st.write(
-                    'Sheep states in unusal low, human voice: "Violence is not an answer but it could be if you don\'t stop"'
+                    'Sheep states in an unusually low, human voice: "Violence is not an answer, but it could be if you don\'t stop"'
                 )
 
     else:
@@ -567,7 +567,7 @@ def libraryScene():
     st.snow()
     st.title("Congratulations " + st.session_state.player_name + "!")
     st.subheader(
-        "You enter Dragon Valut, but instead of gold, you find a Streamlit documentation library!"
+        "You enter the dragon vault, but instead of gold, you find a Streamlit documentation library!"
     )
     st.subheader(
         "All the power is now in your hands. Would you make the documentation available for others? Or keep it only for yourself and make the sickest app in the world? The possibilities offered by Streamlit amaze you."
