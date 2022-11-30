@@ -280,7 +280,7 @@ def caveScene():
 
     # scene text
     st.subheader(
-        "After walking for 2 hours in the forest you encounter dark cave. They say that If you stare into the abyss, the abyss stares back at you. Something shiny seems to flicker in the cave. Are you afraid of the dark?"
+        "After walking for 2 hours in the forest, you encounter a dark cave. They say that if you stare into the abyss, the abyss stares back at you. Something shiny seems to flicker in the cave. Are you afraid of the dark?"
     )
 
     directions_container = st.empty()
@@ -354,7 +354,7 @@ def poScene():
 
     # scene text
     st.subheader(
-        'In the dark you see young man. "I used to be a product manager" - he says. "But then I put comments in the Jira, clicked something and it did not save." - he mubles. "Now I sell swords...30 gold seems to be a good price! Ah...remeber that if you go right you will meet dragon! Left will lead you to the exit." '
+        'In the dark, you see a young man. "I used to be a product manager" - he says. "But then I added comments to Jira, clicked something, and it didn\'t save" - he mumbles. "Now I sell swords...30 gold seems to be a good price! Ah...remember that if you go right, you will meet the dragon! The exit is to your left" '
     )
 
     directions_container = st.empty()
@@ -400,7 +400,7 @@ def poScene():
                 st.session_state["gold"] = st.session_state["gold"] - 30
                 st.session_state["sword"] = 1
             else:
-                st.write("You don't have money")
+                st.write("You don't have enough money")
 
     else:
         # what should happen if wrong action is selected
@@ -619,7 +619,6 @@ welcome = st.empty()
 welcome.title("Welcome adventurer")
 
 # hero base statistics
-
 
 player_name_container = st.empty()
 player_name_container.text_input(
