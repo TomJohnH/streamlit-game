@@ -686,10 +686,10 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+# this part of the code focuses input on text window
 components.html(
     f"""
-        <div>some hidden container</div>
-        <p>{st.session_state.counter}</p>
         <script>
             var input = window.parent.document.querySelectorAll("input[type=text]");
 
