@@ -17,7 +17,9 @@ st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
 #
 ################################################
 
+# variable responsible for checking if player provided his name and game can be started
 start = False
+
 
 if "health" not in st.session_state:
     st.session_state["health"] = 100
