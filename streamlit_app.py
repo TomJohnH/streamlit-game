@@ -1,9 +1,9 @@
 import streamlit as st
-from streamlit_extras.stoggle import stoggle  # check https://extras.streamlit.app/
-from streamlit_extras.metric_cards import style_metric_cards
-
 import time
 import random
+import streamlit.components.v1 as components
+from streamlit_extras.stoggle import stoggle  # check https://extras.streamlit.app/
+from streamlit_extras.metric_cards import style_metric_cards
 
 # -------------- app config ---------------
 
@@ -43,9 +43,19 @@ if "dragon_hp" not in st.session_state:
     st.session_state["dragon_hp"] = 20
 if "temp" not in st.session_state:
     st.session_state["temp"] = ""
+if "counter" not in st.session_state:
+    st.session_state["counter"] = 0
 
 # function restarting session state
 # in the future can be used for randomization
+
+###############################################
+#
+#
+#               FUNCTIONS DEFINITION
+#
+#
+################################################
 
 
 def restart_session():
@@ -675,5 +685,19 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+components.html(
+    f"""
+        <div>some hidden container</div>
+        <p>{st.session_state.counter}</p>
+        <script>
+            var input = window.parent.document.querySelectorAll("input[type=text]");
+
+            for (var i = 0; i < input.length; ++i) {{
+                input[i].focus();
+            }}
+    </script>
+    """,
+    height=150,
+)
 
 # MainMenu {visibility: hidden;}
