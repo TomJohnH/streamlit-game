@@ -20,6 +20,8 @@ st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
 # variable responsible for checking if player provided his name and game can be started
 start = False
 
+# set session states
+# this is streamlit specific. For more contex checkout streamlit documenation
 
 if "health" not in st.session_state:
     st.session_state["health"] = 100
@@ -41,6 +43,9 @@ if "dragon_hp" not in st.session_state:
     st.session_state["dragon_hp"] = 20
 if "temp" not in st.session_state:
     st.session_state["temp"] = ""
+
+# function restarting session state
+# in the future can be used for randomization
 
 
 def restart_session():
