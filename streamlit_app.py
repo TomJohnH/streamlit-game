@@ -94,6 +94,14 @@ def temp_clear():
 
 ###############################################
 #
+#               general components
+#
+################################################
+
+caption_below_input = 'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
+
+###############################################
+#
 #               intro SCENE
 #
 ################################################
@@ -121,10 +129,8 @@ def introScene():
 
     directions_container = st.empty()
 
-    # this is reused many times - do a dictionary
-    st.caption(
-        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
-    )
+    # caption below input
+    st.caption(caption_below_input)
 
     # input container
     # there are a few things going on here:
@@ -188,9 +194,8 @@ def sheepScene():
     # for some reason we have here lenghty interaciton with sheep
 
     directions_container = st.empty()
-    st.caption(
-        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
-    )
+    # caption below input
+    st.caption(caption_below_input)
 
     # scene_action = directions_container.text_input(
     #     "What to do?", key="sheepSceneActions", on_change=clear
@@ -299,9 +304,8 @@ def caveScene():
     )
 
     directions_container = st.empty()
-    st.caption(
-        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
-    )
+    # caption below input
+    st.caption(caption_below_input)
 
     if st.session_state["forest_trip"] == 0:
         st.write("You feel exhausted  and lose -5HP")
@@ -373,9 +377,8 @@ def poScene():
     )
 
     directions_container = st.empty()
-    st.caption(
-        'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
-    )
+    # caption below input
+    st.caption(caption_below_input)
 
     # # st.session_state
     # scene_action = directions_container.text_input(
