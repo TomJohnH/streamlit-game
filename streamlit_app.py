@@ -72,6 +72,7 @@ def restart_session():
 
 
 # this little function helps us to clear text input by storing variable in temp
+# counter +1 is a part of a neat trick to introduce focus on text field (explained further in the code)
 def clear(ss_variable):
     st.session_state["temp"] = st.session_state[ss_variable]
     st.session_state[ss_variable] = ""
@@ -100,9 +101,6 @@ def temp_clear():
 
 def introScene():
 
-    # if st.session_state.previous_place != "introScene":
-    #     st.session_state.last_direction = ""
-
     # delete welcome
     welcome.empty()
 
@@ -120,15 +118,19 @@ def introScene():
         + st.session_state.player_name
         + ", to an unusual world of fantasy. All the decisions that you made until this point in your life led you to this moment. Choose your actions wisely!"
     )
+
     directions_container = st.empty()
+
+    # this is reused many times - do a dictionary
     st.caption(
         'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
     )
-    # st.session_state
-    # scene_action = directions_container.text_input(
-    #     "What to do?", key="introSceneActions"
-    # )
 
+    # input container
+    # there are a few things going on here:
+    # 1. we take user input
+    # 2. we trigger callback which copies input to temp. callback is called with argument that is passed to clear function
+    # 3. text input is cleared
     directions_container.text_input(
         "What to do?",
         key="introSceneActions",
@@ -136,8 +138,10 @@ def introScene():
         args=["introSceneActions"],
     )
 
+    # this is probably redundancy
     scene_action = st.session_state["temp"]
 
+    # this part is responsible for reactions on inputs
     if scene_action.lower() in directions:
         if scene_action.lower() == "help":
             st.write(f'Potential actions: {", ".join(directions)}')
@@ -167,9 +171,6 @@ def introScene():
 
 
 def sheepScene():
-
-    # if st.session_state.previous_place != "sheepScene":
-    #     st.session_state.last_direction = ""
 
     # delete welcome
     welcome.empty()
@@ -280,9 +281,6 @@ def sheepScene():
 
 
 def caveScene():
-
-    # if st.session_state.previous_place != "introScene":
-    #     st.session_state.last_direction = ""
 
     # delete welcome
     welcome.empty()
@@ -597,31 +595,6 @@ def libraryScene():
     st.info("If you liked the game you can like ❤️ the community post and share it 🙂 ")
     st.caption("alpha version")
 
-    # directions_container = st.empty()
-
-    # # st.session_state
-    # scene_action = directions_container.text_input(
-    #     "What to do?", key="librarySceneActions"
-    # )
-
-    # if scene_action.lower() in directions:
-    #     if scene_action.lower() == "left":
-    #         st.session_state.place = "sheepScene"
-    #         temp_clear()
-    #         st.experimental_rerun()
-    #     if scene_action.lower() == "right":
-    #         st.session_state.place = "caveScene"
-    #         temp_clear()
-    #         st.experimental_rerun()
-
-    # else:
-    #     # what should happen if wrong action is selected
-    #     if scene_action != "":
-    #         st.info("Please provide right input")
-    #         dir = f'Potential actions: {", ".join(directions)}'
-    #         stoggle("Help", dir)
-    #         st.write("")
-
 
 ###############################################
 #
@@ -630,7 +603,6 @@ def libraryScene():
 #
 #
 ################################################
-
 
 welcome = st.empty()
 welcome.title("Welcome adventurer")
@@ -658,10 +630,8 @@ if start:
 
     elif st.session_state.place == "sheepScene":
         sheepScene()
-
     elif st.session_state.place == "caveScene":
         caveScene()
-
     elif st.session_state.place == "poScene":
         poScene()
     elif st.session_state.place == "dragonScene":
@@ -680,8 +650,7 @@ if start:
         st.write("🗡️ sword equipped")
 
 hide_streamlit_style = """
-            <style>
-          
+            <style>      
             footer {visibility: hidden;}
             </style>
             """
