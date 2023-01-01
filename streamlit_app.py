@@ -99,6 +99,7 @@ def temp_clear():
 ################################################
 
 caption_below_input = 'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
+# future improvements: all texts will be transferred to database this will clean up the code
 
 ###############################################
 #
@@ -189,17 +190,16 @@ def sheepScene():
         "https://raw.githubusercontent.com/TomJohnH/cv/main/img/sam-carter-GHOiyov2TSQ-unsplash.jpg"
     )
 
-    st.subheader("You see a sheep. Go on, try to pet it.")
+    st.subheader(
+        "You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it."
+    )
 
     # for some reason we have here lenghty interaciton with sheep
 
     directions_container = st.empty()
+
     # caption below input
     st.caption(caption_below_input)
-
-    # scene_action = directions_container.text_input(
-    #     "What to do?", key="sheepSceneActions", on_change=clear
-    # )
 
     # clearing text_input was suprisingly hard to figure out
     directions_container.text_input(
