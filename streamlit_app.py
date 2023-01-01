@@ -124,7 +124,7 @@ def introScene():
     st.subheader(
         "Welcome, "
         + st.session_state.player_name
-        + ", to an unusual world of fantasy. All the decisions that you made until this point in your life led you to this moment. Choose your actions wisely!"
+        + ",  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you've made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey."
     )
 
     directions_container = st.empty()
@@ -300,7 +300,7 @@ def caveScene():
 
     # scene text
     st.subheader(
-        "After walking for 2 hours in the forest, you encounter a dark cave. They say that if you stare into the abyss, the abyss stares back at you. Something shiny seems to flicker in the cave. Are you afraid of the dark?"
+        "After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can't help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?"
     )
 
     directions_container = st.empty()
@@ -373,7 +373,7 @@ def poScene():
 
     # scene text
     st.subheader(
-        'In the dark, you see a young man. "I used to be a product manager" - he says. "But then I added comments to Jira, clicked something, and it didn\'t save" - he mumbles. "Now I sell swords...30 gold seems to be a good price! Ah...remember that if you go right, you will meet the dragon! The exit is to your left" '
+        "In the dark, you see a young man. He was once a renowned product manager, who worked diligently to make the world a better place. But one day, he was attempting to add comments to Jira, when suddenly, something went wrong and his work didn't save. As a result, he was cursed to sell swords in a mystical land, far away from his home. He mutters that the price of 30 gold feels right, and then he offers a warning - if you go right, you will meet a dangerous dragon. He reminds you to keep left if you want to find the exit."
     )
 
     directions_container = st.empty()
