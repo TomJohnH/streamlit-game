@@ -2,8 +2,10 @@ import streamlit as st
 import time
 import random
 import streamlit.components.v1 as components
-from streamlit_extras.stoggle import stoggle  # check https://extras.streamlit.app/
+from streamlit_extras.stoggle import stoggle
 from streamlit_extras.metric_cards import style_metric_cards
+
+# additional components from https://extras.streamlit.app/
 
 # -------------- app config ---------------
 
@@ -21,7 +23,7 @@ st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
 start = False
 
 # set session states
-# this is streamlit specific. For more contex checkout streamlit documenation
+# this is streamlit specific. For more contex please check streamlit documenation
 
 if "health" not in st.session_state:
     st.session_state["health"] = 100
@@ -46,9 +48,6 @@ if "temp" not in st.session_state:
 if "counter" not in st.session_state:
     st.session_state["counter"] = 0
 
-# function restarting session state
-# in the future can be used for randomization
-
 ###############################################
 #
 #
@@ -56,6 +55,9 @@ if "counter" not in st.session_state:
 #
 #
 ################################################
+
+# function restarting session state
+# in the future can be used for randomization
 
 
 def restart_session():
@@ -101,6 +103,15 @@ def temp_clear():
 caption_below_input = 'Use mouse or [Tab] to focus on input field. To check potential actions, type "help".'
 # future improvements: all texts will be transferred to database this will clean up the code
 
+image_source = {
+    "introScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/jens-lelie-u0vgcIOQG08-unsplash.jpg",
+    "sheepScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/sam-carter-GHOiyov2TSQ-unsplash.jpg",
+    "caveScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/salome-guruli-CpwEKoEvGQA-unsplash.jpg",
+    "poScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/francisco-perez-carrasco-QxQ5D0GP0R8-unsplash.jpg",
+    "dragonScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/output.jpg",
+}
+
+
 ###############################################
 #
 #               intro SCENE
@@ -117,9 +128,7 @@ def introScene():
     directions = ["left", "right", "help"]
 
     # main_image
-    st.image(
-        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/jens-lelie-u0vgcIOQG08-unsplash.jpg"
-    )
+    st.image(image_source["introScene"])
 
     # scene text
     st.subheader(
@@ -185,10 +194,8 @@ def sheepScene():
     # possible actions
     directions = ["left", "right", "back", "pet", "help"]
 
-    # main_image
-    st.image(
-        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/sam-carter-GHOiyov2TSQ-unsplash.jpg"
-    )
+    # scene image
+    st.image(image_source["sheepScene"])
 
     st.subheader(
         "You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it."
@@ -294,9 +301,7 @@ def caveScene():
     directions = ["up", "back", "help"]
 
     # main_image
-    st.image(
-        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/salome-guruli-CpwEKoEvGQA-unsplash.jpg"
-    )
+    st.image(image_source["caveScene"])
 
     # scene text
     st.subheader(
@@ -311,11 +316,6 @@ def caveScene():
         st.write("You feel exhausted  and lose -5HP")
         st.session_state.health = st.session_state.health - 5
         st.session_state["forest_trip"] = 1
-
-    # st.session_state
-    # scene_action = directions_container.text_input(
-    #     "What to do?", key="caveSceneActions"
-    # )
 
     directions_container.text_input(
         "What to do?",
@@ -367,9 +367,7 @@ def poScene():
     directions = ["left", "right", "back", "buy", "help"]
 
     # main_image
-    st.image(
-        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/francisco-perez-carrasco-QxQ5D0GP0R8-unsplash.jpg"
-    )
+    st.image(image_source["poScene"])
 
     # scene text
     st.subheader(
@@ -455,7 +453,7 @@ def dragonScene():
         st.write("")
 
     with col2:
-        st.image("https://raw.githubusercontent.com/TomJohnH/cv/main/img/output.jpg")
+        st.image(image_source["dragonScene"])
 
     with col3:
         st.write("")
