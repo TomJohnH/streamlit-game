@@ -4,6 +4,9 @@ Made by TJ
 
 Updates:
 
+03.01.2023
+- added external css and styling
+
 01.01.2023
 - Code refactor 
 - Some of the dialogues were rewritten

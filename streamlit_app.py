@@ -11,6 +11,12 @@ from streamlit_extras.metric_cards import style_metric_cards
 
 st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
 
+# external css
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
 ###############################################
 #
 #
@@ -131,10 +137,9 @@ def introScene():
     st.image(image_source["introScene"])
 
     # scene text
-    st.subheader(
-        "Welcome, "
-        + st.session_state.player_name
-        + ",  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you've made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey."
+    st.markdown(
+        f'<div class="fantasy-container"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
+        unsafe_allow_html=True,
     )
 
     directions_container = st.empty()
@@ -197,8 +202,9 @@ def sheepScene():
     # scene image
     st.image(image_source["sheepScene"])
 
-    st.subheader(
-        "You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it."
+    st.markdown(
+        f'<div class="fantasy-container"><p>You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it.</p></div>',
+        unsafe_allow_html=True,
     )
 
     # for some reason we have here lenghty interaciton with sheep
@@ -304,8 +310,9 @@ def caveScene():
     st.image(image_source["caveScene"])
 
     # scene text
-    st.subheader(
-        "After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can't help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?"
+    st.markdown(
+        f'<div class="fantasy-container"><p>After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can\'t help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?</p></div>',
+        unsafe_allow_html=True,
     )
 
     directions_container = st.empty()
@@ -350,7 +357,7 @@ def caveScene():
 
 ###############################################
 #
-#               poScene
+#               po Scene
 #
 ################################################
 
@@ -370,8 +377,9 @@ def poScene():
     st.image(image_source["poScene"])
 
     # scene text
-    st.subheader(
-        "In the dark, you see a young man. He was once a renowned product manager, who worked diligently to make the world a better place. But one day, he was attempting to add comments to Jira, when suddenly, something went wrong and his work didn't save. As a result, he was cursed to sell swords in a mystical land, far away from his home. He mutters that the price of 30 gold feels right, and then he offers a warning - if you go right, you will meet a dangerous dragon. He reminds you to keep left if you want to find the exit."
+    st.markdown(
+        f'<div class="fantasy-container"><p>In the dark, you see a young man. He was once a renowned product manager, who worked diligently to make the world a better place. But one day, he was attempting to add comments to Jira, when suddenly, something went wrong and his work didn\'t save. As a result, he was cursed to sell swords in a mystical land, far away from his home. He mutters that the price of 30 gold feels right, and then he offers a warning - if you go right, you will meet a dangerous dragon. He reminds you to keep left if you want to find the exit.</p></div>',
+        unsafe_allow_html=True,
     )
 
     directions_container = st.empty()
@@ -459,8 +467,9 @@ def dragonScene():
         st.write("")
 
     # scene text
-    st.subheader(
-        "Oh no! It's a Neural Network AI Deep Learning Big Data Generated Dragon! (NNADLBDGD)"
+    st.markdown(
+        f'<div class="fantasy-container"><p>Oh no! It\'s a Neural Network AI Deep Learning Big Data Generated Dragon! (NNADLBDGD)</p></div>',
+        unsafe_allow_html=True,
     )
 
     if st.session_state.sword == 0:
@@ -604,6 +613,12 @@ def libraryScene():
 #
 #
 ################################################
+
+# ---------------- CSS ----------------
+
+local_css("style.css")
+
+# ----------------- game start --------
 
 welcome = st.empty()
 welcome.title("Welcome adventurer")
