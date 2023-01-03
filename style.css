@@ -4,13 +4,13 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 5px #999;
-    font-family: 'Cursive', serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
 
 }
 
 .fantasy-container p {
-    text-shadow: 0 0 5px #999;
+    text-shadow: 0 0 3px #999;
     margin: 0px;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
