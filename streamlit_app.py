@@ -629,6 +629,7 @@ local_css("style.css")
 
 # ----------------- game start --------
 
+
 welcome = st.empty()
 welcome.title("Welcome adventurer")
 
@@ -673,8 +674,23 @@ if start:
     style_metric_cards(
         background_color="#black", border_color="#2b2410", border_left_color="#2b2410"
     )
+
     if st.session_state["sword"] == 1:
         st.write("🗡️ sword equipped")
+
+# this part of the code focuses input on text window
+components.html(
+    f"""
+        <script>
+            
+            var input = window.parent.document.querySelectorAll("input[type=text]");
+            for (var i = 0; i < input.length; ++i) {{
+                input[i].focus();
+            }}
+        </script>
+    """,
+    height=0,
+)
 
 hide_streamlit_style = """
             <style>      
@@ -683,18 +699,5 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# this part of the code focuses input on text window
-components.html(
-    f"""
-        <script>
-            var input = window.parent.document.querySelectorAll("input[type=text]");
-
-            for (var i = 0; i < input.length; ++i) {{
-                input[i].focus();
-            }}
-    </script>
-    """,
-    height=150,
-)
 
 # MainMenu {visibility: hidden;}
