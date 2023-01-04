@@ -11,7 +11,7 @@ from streamlit_extras.metric_cards import style_metric_cards
 
 st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
 
-# external css
+# define external css
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -49,6 +49,8 @@ if "dragon_alive" not in st.session_state:
     st.session_state["dragon_alive"] = 1
 if "dragon_hp" not in st.session_state:
     st.session_state["dragon_hp"] = 20
+if "intro_counter" not in st.session_state:
+    st.session_state["intro_counter"] = 0
 if "temp" not in st.session_state:
     st.session_state["temp"] = ""
 if "counter" not in st.session_state:
@@ -77,6 +79,7 @@ def restart_session():
     st.session_state["sword"] = 0
     st.session_state["dragon_alive"] = 1
     st.session_state["dragon_hp"] = 20
+    st.session_state["intro_counter"] = 0
 
 
 # this little function helps us to clear text input by storing variable in temp
@@ -127,9 +130,6 @@ image_source = {
 
 def introScene():
 
-    # delete welcome
-    welcome.empty()
-
     # possible actions
     directions = ["left", "right", "help"]
 
@@ -137,10 +137,17 @@ def introScene():
     st.image(image_source["introScene"])
 
     # scene text
-    st.markdown(
-        f'<div class="fantasy-container"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
-        unsafe_allow_html=True,
-    )
+    if st.session_state["intro_counter"] == 0:
+        st.markdown(
+            f'<div class="fantasy-container"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
+            unsafe_allow_html=True,
+        )
+        st.session_state["intro_counter"] += 1
+    else:
+        st.markdown(
+            f'<div class="fantasy-container"><p>You are back at the fork in the forest road.</p></div>',
+            unsafe_allow_html=True,
+        )
 
     directions_container = st.empty()
 
@@ -163,13 +170,23 @@ def introScene():
     scene_action = st.session_state["temp"]
 
     # this part is responsible for reactions on inputs
+    # after we gather information about scene action we then trigger reaction
+    # there are standard reactions like reaction to help and scene spcecific reactions
     if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
         if scene_action.lower() == "help":
             st.write(f'Potential actions: {", ".join(directions)}')
+        # --- LEFT ---
+        # ------------
         if scene_action.lower() == "left":
-            st.session_state.place = "sheepScene"
-            temp_clear()
-            st.experimental_rerun()
+            st.session_state.place = (
+                "sheepScene"  # we are moving our character to other scene
+            )
+            temp_clear()  # we are claring text input
+            st.experimental_rerun()  # rerun is streamlit specific and rerund the app
+        # --- RIGHT ---
+        # ------------
         if scene_action.lower() == "right":
             st.session_state.place = "caveScene"
             temp_clear()
@@ -192,9 +209,6 @@ def introScene():
 
 
 def sheepScene():
-
-    # delete welcome
-    welcome.empty()
 
     # possible actions
     directions = ["left", "right", "back", "pet", "help"]
@@ -225,6 +239,8 @@ def sheepScene():
     scene_action = st.session_state["temp"]
 
     if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
         if scene_action.lower() == "help":
             st.write(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
@@ -261,10 +277,13 @@ def sheepScene():
                     + " coins"
                 )
                 st.session_state.gold = st.session_state.gold + random_gold
+
             # --- Sheep becomes angrier ---
             st.session_state.sheep_anger = st.session_state.sheep_anger + 1
+
             if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
                 st.write("Sheep is becoming a little bit anoyed ")
+
             # --- too much pets ---
             if st.session_state.sheep_anger == 5:
                 st.write(
@@ -283,6 +302,7 @@ def sheepScene():
                 )
 
     else:
+
         # what should happen if wrong action is selected
         if scene_action != "":
             st.info("Please provide right input")
@@ -299,9 +319,6 @@ def sheepScene():
 
 
 def caveScene():
-
-    # delete welcome
-    welcome.empty()
 
     # possible actions
     directions = ["up", "back", "help"]
@@ -334,13 +351,18 @@ def caveScene():
     scene_action = st.session_state["temp"]
 
     if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
         if scene_action.lower() == "help":
             st.write(f'Potential actions: {", ".join(directions)}')
+        # --- back ---
+        # ------------
         if scene_action.lower() == "back":
             st.session_state.place = "introScene"
             temp_clear()
             st.experimental_rerun()
-
+        # --- up ---
+        # ------------
         if scene_action.lower() == "up":
             st.session_state.place = "poScene"
             temp_clear()
@@ -364,12 +386,6 @@ def caveScene():
 
 def poScene():
 
-    # if st.session_state.previous_place != "introScene":
-    #     st.session_state.last_direction = ""
-
-    # delete welcome
-    welcome.empty()
-
     # possible actions
     directions = ["left", "right", "back", "buy", "help"]
 
@@ -383,13 +399,9 @@ def poScene():
     )
 
     directions_container = st.empty()
+
     # caption below input
     st.caption(caption_below_input)
-
-    # # st.session_state
-    # scene_action = directions_container.text_input(
-    #     "What to do?", key="poSceneActions"
-    # )  # potentially dynamic key based on function name?
 
     directions_container.text_input(
         "What to do?",
@@ -401,16 +413,24 @@ def poScene():
     scene_action = st.session_state["temp"]
 
     if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
         if scene_action.lower() == "help":
             st.write(f'Potential actions: {", ".join(directions)}')
+        # --- LEFT ---
+        # ------------
         if scene_action.lower() == "left":
             st.session_state.place = "dragonScene"
             temp_clear()
             st.experimental_rerun()
+        # --- RIGHT OR BACK ---
+        # ------------
         if scene_action.lower() == "right" or scene_action.lower() == "back":
             st.session_state.place = "caveScene"
             temp_clear()
             st.experimental_rerun()
+        # --- BUY ---
+        # ------------
         if scene_action.lower() == "buy":
             my_bar = st.empty()
             my_bar.progress(0)
@@ -444,12 +464,6 @@ def poScene():
 
 def dragonScene():
 
-    # if st.session_state.previous_place != "introScene":
-    #     st.session_state.last_direction = ""
-
-    # delete welcome
-    welcome.empty()
-
     # possible actions
     directions = ["fight", "up", "back", "help"]
 
@@ -472,6 +486,7 @@ def dragonScene():
         unsafe_allow_html=True,
     )
 
+    # without a sword you will die
     if st.session_state.sword == 0:
         st.write(
             "Dragon uses matrix multiplication and you get hit in the head by loose neuron. You don't have anything to defend yourself."
@@ -574,12 +589,6 @@ def dragonScene():
 
 def libraryScene():
 
-    # if st.session_state.previous_place != "introScene":
-    #     st.session_state.last_direction = ""
-
-    # delete welcome
-    welcome.empty()
-
     # possible actions
     directions = ["left", "right"]
 
@@ -641,9 +650,11 @@ if st.session_state.player_name != "":
 
 if start:
 
+    # delete welcome
+    welcome.empty()
+
     if st.session_state.place == "introScene":
         introScene()
-
     elif st.session_state.place == "sheepScene":
         sheepScene()
     elif st.session_state.place == "caveScene":
