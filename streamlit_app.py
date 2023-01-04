@@ -118,6 +118,7 @@ image_source = {
     "caveScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/salome-guruli-CpwEKoEvGQA-unsplash.jpg",
     "poScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/francisco-perez-carrasco-QxQ5D0GP0R8-unsplash.jpg",
     "dragonScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/output.jpg",
+    "libraryScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/ryunosuke-kikuno-FKqxZ58bVjU-unsplash.jpg",
 }
 
 
@@ -593,9 +594,7 @@ def libraryScene():
     directions = ["left", "right"]
 
     # main_image
-    st.image(
-        "https://raw.githubusercontent.com/TomJohnH/cv/main/img/ryunosuke-kikuno-FKqxZ58bVjU-unsplash.jpg"
-    )
+    st.image(image_source["libraryScene"])
 
     # scene text
     st.snow()
@@ -682,7 +681,6 @@ if start:
 components.html(
     f"""
         <script>
-            
             var input = window.parent.document.querySelectorAll("input[type=text]");
             for (var i = 0; i < input.length; ++i) {{
                 input[i].focus();
