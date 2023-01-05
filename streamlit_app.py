@@ -114,7 +114,7 @@ caption_below_input = 'Use mouse or [Tab] to focus on input field. To check pote
 
 image_source = {
     "introScene": "images/path.jpg",
-    "sheepScene": "images/sheet.jpg",
+    "sheepScene": "images/sheep.jpg",
     "caveScene": "images/cave.jpg",
     "poScene": "images/po.jpg",
     "dragonScene": "images/dragon.jpg",
