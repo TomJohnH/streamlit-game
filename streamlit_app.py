@@ -680,12 +680,14 @@ if start:
 # this part of the code focuses input on text window
 components.html(
     f"""
+        <div>some hidden container</div>
+        <p>{st.session_state.counter}</p>
         <script>
             var input = window.parent.document.querySelectorAll("input[type=text]");
             for (var i = 0; i < input.length; ++i) {{
                 input[i].focus();
             }}
-        </script>
+    </script>
     """,
     height=0,
 )
