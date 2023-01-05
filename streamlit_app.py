@@ -678,6 +678,7 @@ if start:
         st.write("🗡️ sword equipped")
 
 # this part of the code focuses input on text window
+# please note that counter is required - for streamlit specific it does not work without it
 components.html(
     f"""
         <div>some hidden container</div>
