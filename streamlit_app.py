@@ -113,12 +113,12 @@ caption_below_input = 'Use mouse or [Tab] to focus on input field. To check pote
 # future improvements: all texts will be transferred to database this will clean up the code
 
 image_source = {
-    "introScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/jens-lelie-u0vgcIOQG08-unsplash.jpg",
-    "sheepScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/sam-carter-GHOiyov2TSQ-unsplash.jpg",
-    "caveScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/salome-guruli-CpwEKoEvGQA-unsplash.jpg",
-    "poScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/francisco-perez-carrasco-QxQ5D0GP0R8-unsplash.jpg",
-    "dragonScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/output.jpg",
-    "libraryScene": "https://raw.githubusercontent.com/TomJohnH/cv/main/img/ryunosuke-kikuno-FKqxZ58bVjU-unsplash.jpg",
+    "introScene": "images/path.jpg",
+    "sheepScene": "images/sheet.jpg",
+    "caveScene": "images/cave.jpg",
+    "poScene": "images/po.jpg",
+    "dragonScene": "images/dragon.jpg",
+    "libraryScene": "images/library.jpg",
 }
 
 
