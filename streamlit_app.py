@@ -630,10 +630,9 @@ def libraryScene():
     st.subheader("Use your new power wisely.")
     st.success("Thank you for playing SteamlitLand Adventure RPG!")
     st.info("If you liked the game you can like ❤️ the community post and share it 🙂")
+    st.info("Credits: Created by @TomJohn")
+    st.info("Top players: knight @Courtland_Goldengate")
     st.caption("beta version")
-    st.info(
-        "Credits: Created by @TomJohn. Knight @Courtland_Goldengate was first to complete the game. Thank you for testing alfa version!"
-    )
 
 
 ###############################################
