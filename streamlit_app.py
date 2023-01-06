@@ -279,7 +279,7 @@ def sheepScene():
 
             if st.session_state.sheep_anger < 5:
 
-                st.write(
+                st.success(
                     "Sheep goes: streeeeaaamlit and gives you "
                     + str(random_gold)
                     + " coins"
@@ -290,11 +290,11 @@ def sheepScene():
             st.session_state.sheep_anger = st.session_state.sheep_anger + 1
 
             if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
-                st.write("Sheep is becoming a little bit anoyed ")
+                st.success("Sheep is becoming a little bit anoyed ")
 
             # --- too much pets ---
             if st.session_state.sheep_anger == 5:
-                st.write(
+                st.success(
                     "Sheep has enough of pets and bites your arm off. You lose 50 HP!"
                 )
                 st.session_state.health = st.session_state.health - 50
@@ -303,9 +303,9 @@ def sheepScene():
                 annoyed_sheep = (
                     "".join("." for i in range(random_number_of_dots)) + "no"
                 )
-                st.write(annoyed_sheep)
+                st.success(annoyed_sheep)
             if st.session_state.sheep_anger >= 10:
-                st.write(
+                st.success(
                     'Sheep states in an unusually low, human voice: "Violence is not an answer, but it could be if you don\'t stop"'
                 )
 
@@ -353,7 +353,7 @@ def caveScene():
     st.caption(caption_below_input)
 
     if st.session_state["scenes_counter"]["trip_counter"] == 0:
-        st.write("You feel exhausted and lose -5HP")
+        st.success("You feel exhausted and lose -5HP")
         st.session_state.health = st.session_state.health - 5
         st.session_state["scenes_counter"]["trip_counter"] = 1
 
@@ -458,11 +458,11 @@ def poScene():
                 my_bar.progress(percent_complete + 1)
             my_bar.empty()
             if st.session_state["gold"] >= 30:
-                st.write("Acquired sword")
+                st.success("Acquired sword")
                 st.session_state["gold"] = st.session_state["gold"] - 30
                 st.session_state["sword"] = 1
             else:
-                st.write("You don't have enough money")
+                st.success("You don't have enough money")
 
     else:
         # what should happen if wrong action is selected
@@ -506,10 +506,10 @@ def dragonScene():
 
     # without a sword you will die
     if st.session_state.sword == 0:
-        st.write(
+        st.success(
             "Dragon uses matrix multiplication and you get hit in the head by loose neuron. You don't have anything to defend yourself."
         )
-        st.write(
+        st.success(
             "Unfortunatelly this is where your adventure ends. But could you have done something differently?"
         )
         if st.button("Restart"):
@@ -519,7 +519,7 @@ def dragonScene():
             st.experimental_rerun()
     else:
 
-        st.write(
+        st.success(
             "Fortunatelly you have a sword so you can defend yourself from the dragon! Do you wanna fight it?"
         )
         directions_container = st.empty()
@@ -556,29 +556,31 @@ def dragonScene():
                 my_bar.empty()
                 if st.session_state.dragon_alive == 1:
 
-                    st.write(
+                    st.success(
                         "Your matrix multiplication skills are better than dragons. Who would have guessed that these algebra classes would be useful after all?"
                     )
                     damage = random.randint(5, 10)
-                    st.write("Dragon loses " + str(damage) + " HP")
+                    st.success("Dragon loses " + str(damage) + " HP")
 
                     st.session_state["dragon_hp"] = st.session_state[
                         "dragon_hp"
                     ] - random.randint(0, damage)
 
                     damage = random.randint(0, 8)
-                    st.write("Dragon hits you back and you lose " + str(damage) + " HP")
+                    st.success(
+                        "Dragon hits you back and you lose " + str(damage) + " HP"
+                    )
 
                     st.session_state["health"] = st.session_state["health"] - damage
                     if st.session_state["dragon_hp"] <= 0:
                         st.session_state.dragon_alive = 0
-                        st.write("DRAGON IS DEAD or at least to you")
+                        st.success("DRAGON IS DEAD or at least to you")
                 else:
-                    st.write("DRAGON IS DEAD or at least to you")
+                    st.success("DRAGON IS DEAD or at least to you")
 
             if scene_action.lower() == "up":
                 if st.session_state.dragon_alive == 1:
-                    st.write("Dragon is still alive. Fight or flight!")
+                    st.success("Dragon is still alive. Fight or flight!")
                 else:
                     st.session_state.place = "libraryScene"
                     temp_clear()
@@ -627,8 +629,11 @@ def libraryScene():
     )
     st.subheader("Use your new power wisely.")
     st.success("Thank you for playing SteamlitLand Adventure RPG!")
-    st.info("If you liked the game you can like ❤️ the community post and share it 🙂 ")
-    st.caption("alpha version")
+    st.info("If you liked the game you can like ❤️ the community post and share it 🙂")
+    st.caption("beta version")
+    st.info(
+        "Credits: Created by @TomJohn. Knight @Courtland_Goldengate was first to complete the game. Thank you for testing alfa version!"
+    )
 
 
 ###############################################
