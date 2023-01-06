@@ -41,20 +41,22 @@ if "place" not in st.session_state:
     st.session_state["place"] = "introScene"
 if "sheep_anger" not in st.session_state:
     st.session_state["sheep_anger"] = 0
-if "forest_trip" not in st.session_state:
-    st.session_state["forest_trip"] = 0
 if "sword" not in st.session_state:
     st.session_state["sword"] = 0
 if "dragon_alive" not in st.session_state:
     st.session_state["dragon_alive"] = 1
 if "dragon_hp" not in st.session_state:
     st.session_state["dragon_hp"] = 20
-if "intro_counter" not in st.session_state:
-    st.session_state["intro_counter"] = 0
 if "temp" not in st.session_state:
     st.session_state["temp"] = ""
 if "counter" not in st.session_state:
     st.session_state["counter"] = 0
+if "scenes_counter" not in st.session_state:
+    st.session_state["scenes_counter"] = {
+        "intro_counter": 0,
+        "cave_counter": 0,
+        "trip_counter": 0,
+    }
 
 ###############################################
 #
@@ -79,7 +81,11 @@ def restart_session():
     st.session_state["sword"] = 0
     st.session_state["dragon_alive"] = 1
     st.session_state["dragon_hp"] = 20
-    st.session_state["intro_counter"] = 0
+    st.session_state["scenes_counter"] = {
+        "intro_counter": 0,
+        "cave_counter": 0,
+        "trip_counter": 0,
+    }
 
 
 # this little function helps us to clear text input by storing variable in temp
@@ -124,7 +130,7 @@ image_source = {
 
 ###############################################
 #
-#               intro SCENE
+#               intro Scene
 #
 ################################################
 
@@ -138,12 +144,11 @@ def introScene():
     st.image(image_source["introScene"])
 
     # scene text
-    if st.session_state["intro_counter"] == 0:
+    if st.session_state["scenes_counter"]["intro_counter"] == 0:
         st.markdown(
             f'<div class="fantasy-container"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
             unsafe_allow_html=True,
         )
-        st.session_state["intro_counter"] += 1
     else:
         st.markdown(
             f'<div class="fantasy-container"><p>You are back at the fork in the forest road.</p></div>',
@@ -177,10 +182,11 @@ def introScene():
         # --- HELP ---
         # ------------
         if scene_action.lower() == "help":
-            st.write(f'Potential actions: {", ".join(directions)}')
+            st.info(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
         # ------------
         if scene_action.lower() == "left":
+            st.session_state["scenes_counter"]["intro_counter"] += 1
             st.session_state.place = (
                 "sheepScene"  # we are moving our character to other scene
             )
@@ -189,6 +195,7 @@ def introScene():
         # --- RIGHT ---
         # ------------
         if scene_action.lower() == "right":
+            st.session_state["scenes_counter"]["intro_counter"] += 1
             st.session_state.place = "caveScene"
             temp_clear()
             st.experimental_rerun()
@@ -243,7 +250,7 @@ def sheepScene():
         # --- HELP ---
         # ------------
         if scene_action.lower() == "help":
-            st.write(f'Potential actions: {", ".join(directions)}')
+            st.info(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
         # ------------
         if scene_action.lower() == "left":
@@ -328,19 +335,27 @@ def caveScene():
     st.image(image_source["caveScene"])
 
     # scene text
-    st.markdown(
-        f'<div class="fantasy-container"><p>After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can\'t help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?</p></div>',
-        unsafe_allow_html=True,
-    )
+    # conditional if you have already seen the scene
+    if st.session_state["scenes_counter"]["cave_counter"] == 0:
+        st.markdown(
+            f'<div class="fantasy-container"><p>After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can\'t help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?</p></div>',
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            f'<div class="fantasy-container"><p>You are back at the cave.</p></div>',
+            unsafe_allow_html=True,
+        )
 
     directions_container = st.empty()
+
     # caption below input
     st.caption(caption_below_input)
 
-    if st.session_state["forest_trip"] == 0:
-        st.write("You feel exhausted  and lose -5HP")
+    if st.session_state["scenes_counter"]["trip_counter"] == 0:
+        st.write("You feel exhausted and lose -5HP")
         st.session_state.health = st.session_state.health - 5
-        st.session_state["forest_trip"] = 1
+        st.session_state["scenes_counter"]["trip_counter"] = 1
 
     directions_container.text_input(
         "What to do?",
@@ -355,16 +370,18 @@ def caveScene():
         # --- HELP ---
         # ------------
         if scene_action.lower() == "help":
-            st.write(f'Potential actions: {", ".join(directions)}')
+            st.info(f'Potential actions: {", ".join(directions)}')
         # --- back ---
         # ------------
         if scene_action.lower() == "back":
+            st.session_state["scenes_counter"]["cave_counter"] += 1
             st.session_state.place = "introScene"
             temp_clear()
             st.experimental_rerun()
         # --- up ---
         # ------------
         if scene_action.lower() == "up":
+            st.session_state["scenes_counter"]["cave_counter"] += 1
             st.session_state.place = "poScene"
             temp_clear()
             st.experimental_rerun()
@@ -417,7 +434,7 @@ def poScene():
         # --- HELP ---
         # ------------
         if scene_action.lower() == "help":
-            st.write(f'Potential actions: {", ".join(directions)}')
+            st.info(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
         # ------------
         if scene_action.lower() == "left":
@@ -528,7 +545,7 @@ def dragonScene():
 
         if scene_action.lower() in directions:
             if scene_action.lower() == "help":
-                st.write(f'Potential actions: {", ".join(directions)}')
+                st.info(f'Potential actions: {", ".join(directions)}')
             if scene_action.lower() == "fight":
                 my_bar = st.empty()
                 my_bar.progress(0)
