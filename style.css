@@ -23,3 +23,9 @@ h1 {
     font-family: 'Goudy Old Style', sans-serif;
     text-shadow: 2px 2px 10px #666;
 }
+
+@media (max-width:600px) {
+    img {
+        display: none;
+    }
+}
