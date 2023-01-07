@@ -4,6 +4,9 @@ Made by TJ
 
 Updates:
 
+07.01.2023
+- major code refactor and split to modules
+
 03.01.2023
 - added external css and styling
 
