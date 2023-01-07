@@ -1,10 +1,11 @@
 import streamlit as st
-import time
-import random
-import game_scenes
 import streamlit.components.v1 as components
 from streamlit_extras.stoggle import stoggle
 from streamlit_extras.metric_cards import style_metric_cards
+import time
+import random
+import game_scenes
+
 
 # additional components from https://extras.streamlit.app/
 
