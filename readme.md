@@ -1,8 +1,8 @@
-**StreamlitLand Adventure RPG [text-based game in Streamlit]**
+# StreamlitLand Adventure RPG [text-based game in Streamlit]
 
 Made by TJ
 
-Updates:
+Change log:
 
 07.01.2023
 - major code refactor and split to modules
