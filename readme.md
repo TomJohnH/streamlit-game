@@ -1,7 +1,7 @@
 # StreamlitLand Adventure RPG 
-# [text-based game in Streamlit]
+[text-based game in Streamlit]
 
-adventure.streamlit.app
+[adventure.streamlit.app](https://adventure.streamlit.app)
 
 Change log:
 
