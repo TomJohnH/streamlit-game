@@ -1,6 +1,7 @@
-# StreamlitLand Adventure RPG [text-based game in Streamlit]
+# StreamlitLand Adventure RPG 
+# [text-based game in Streamlit]
 
-Made by TJ
+adventure.streamlit.app
 
 Change log:
 
