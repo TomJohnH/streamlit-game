@@ -28,7 +28,9 @@ h1 {
 }
 
 .st-cp,
-.st-co {
+.st-co,
+.st-at,
+.st-f7 {
     background-color: #2b2a3a;
     border-top: 3px solid #5b488b;
 }

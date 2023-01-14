@@ -17,20 +17,23 @@ def introScene():
     # possible actions
     directions = ["left", "right", "help"]
 
-    # main_image
-    st.image(game_config.image_source["introScene"])
-
-    # scene text
-    if st.session_state["scenes_counter"]["intro_counter"] == 0:
-        st.markdown(
-            f'<div class="fantasy-container"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
-            unsafe_allow_html=True,
-        )
-    else:
-        st.markdown(
-            f'<div class="fantasy-container"><p>You are back at the fork in the forest road.</p></div>',
-            unsafe_allow_html=True,
-        )
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # main_image
+        st.image(game_config.image_source["introScene"])
+        st.write("Forrest crossroad")
+    with col2:
+        # scene text
+        if st.session_state["scenes_counter"]["intro_counter"] == 0:
+            st.markdown(
+                f'<div class="fantasy-container"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                f'<div class="fantasy-container"><p>You are back at the fork in the forest road.</p></div>',
+                unsafe_allow_html=True,
+            )
 
     directions_container = st.empty()
 
@@ -98,13 +101,16 @@ def sheepScene():
     # possible actions
     directions = ["left", "right", "back", "pet", "help"]
 
-    # scene image
-    st.image(game_config.image_source["sheepScene"])
-
-    st.markdown(
-        f'<div class="fantasy-container"><p>You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it.</p></div>',
-        unsafe_allow_html=True,
-    )
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # scene image
+        st.image(game_config.image_source["sheepScene"])
+        st.write("Magical sheep")
+    with col2:
+        st.markdown(
+            f'<div class="fantasy-container" style="min-height:258.17px"><p>You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it.</p></div>',
+            unsafe_allow_html=True,
+        )
 
     # for some reason we have here lenghty interaciton with sheep
 
@@ -208,21 +214,24 @@ def caveScene():
     # possible actions
     directions = ["up", "back", "help"]
 
-    # main_image
-    st.image(game_config.image_source["caveScene"])
-
-    # scene text
-    # conditional if you have already seen the scene
-    if st.session_state["scenes_counter"]["cave_counter"] == 0:
-        st.markdown(
-            f'<div class="fantasy-container"><p>After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can\'t help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?</p></div>',
-            unsafe_allow_html=True,
-        )
-    else:
-        st.markdown(
-            f'<div class="fantasy-container"><p>You are back at the cave.</p></div>',
-            unsafe_allow_html=True,
-        )
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # main_image
+        st.image(game_config.image_source["caveScene"])
+        st.write("Dark cave")
+    with col2:
+        # scene text
+        # conditional if you have already seen the scene
+        if st.session_state["scenes_counter"]["cave_counter"] == 0:
+            st.markdown(
+                f'<div class="fantasy-container"><p>After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can\'t help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?</p></div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                f'<div class="fantasy-container"><p>You are back at the cave.</p></div>',
+                unsafe_allow_html=True,
+            )
 
     directions_container = st.empty()
 
@@ -284,14 +293,17 @@ def poScene():
     # possible actions
     directions = ["left", "right", "back", "buy", "help"]
 
-    # main_image
-    st.image(game_config.image_source["poScene"])
-
-    # scene text
-    st.markdown(
-        f'<div class="fantasy-container"><p>In the dark, you see a young man. He was once a renowned product manager, who worked diligently to make the world a better place. But one day, he was attempting to add comments to Jira, when suddenly, something went wrong and his work didn\'t save. As a result, he was cursed to sell swords in a mystical land, far away from his home. He mutters that the price of 30 gold feels right, and then he offers a warning - if you go right, you will meet a dangerous dragon. He reminds you to keep left if you want to find the exit.</p></div>',
-        unsafe_allow_html=True,
-    )
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # main_image
+        st.image(game_config.image_source["poScene"])
+        st.write("Product manager's hideout")
+    with col2:
+        # scene text
+        st.markdown(
+            f'<div class="fantasy-container"><p>In the dark, you see a young man. He was once a renowned product manager, who worked diligently to make the world a better place. But one day, he was attempting to add comments to Jira, when suddenly, something went wrong and his work didn\'t save. As a result, he was cursed to sell swords in a mystical land, far away from his home. He mutters that the price of 30 gold feels right, and then he offers a warning - if you go right, you will meet a dangerous dragon. He reminds you to keep left if you want to find the exit.</p></div>',
+            unsafe_allow_html=True,
+        )
 
     directions_container = st.empty()
 
@@ -364,22 +376,17 @@ def dragonScene():
 
     # main_image
 
-    col1, col2, col3 = st.columns([1, 6, 1])
-
+    col1, col2 = st.columns(2, gap="small")
     with col1:
-        st.write("")
+        st.image(game_config.image_source["dragonScene"])
+        st.write("Dragon's lair")
 
     with col2:
-        st.image(game_config.image_source["dragonScene"])
-
-    with col3:
-        st.write("")
-
-    # scene text
-    st.markdown(
-        f'<div class="fantasy-container"><p>Oh no! PM was wrong about going left! It\'s a Neural Network AI Deep Learning Big Data Generated Dragon! (NNADLBDGD)</p></div>',
-        unsafe_allow_html=True,
-    )
+        # scene text
+        st.markdown(
+            f'<div class="fantasy-container"><p>Oh no! PM was wrong about going left! It\'s a Neural Network AI Deep Learning Big Data Generated Dragon! (NNADLBDGD)</p></div>',
+            unsafe_allow_html=True,
+        )
 
     # without a sword you will die
     if st.session_state.sword == 0:
