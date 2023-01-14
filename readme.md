@@ -1,9 +1,17 @@
 # StreamlitLand Adventure RPG 
-[text-based game in Streamlit]
 
-[adventure.streamlit.app](https://adventure.streamlit.app)
+A text-based game & game engine in Streamlit
 
-Change log:
+Deployed here: [adventure.streamlit.app](https://adventure.streamlit.app)
+
+##Lore##
+
+In the StreamlitLand, magic and technology coexist in a delicate balance. The player takes on the role of a young adventurer, just starting out on their journey to save the StreamlitLand from the terrible NNADLBDGD!
+
+##Change log:##
+
+14.01.2023
+- redesigned UX, visuals are now significantly better
 
 07.01.2023
 - major code refactor and split to modules
