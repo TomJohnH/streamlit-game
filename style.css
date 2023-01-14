@@ -27,9 +27,17 @@ h1 {
     /* text-shadow: 2px 2px 10px #666; */
 }
 
-.st-cp {
+.st-cp,
+.st-co {
     background-color: #2b2a3a;
     border-top: 3px solid #5b488b;
+}
+
+.st-cm,
+.st-cl,
+.st-ck,
+.st-cj {
+    border-color: #5b488b;
 }
 
 /* @media (max-width:600px) {
