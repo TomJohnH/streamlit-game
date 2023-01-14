@@ -8,7 +8,7 @@ Deployed here: [adventure.streamlit.app](https://adventure.streamlit.app)
 
 In the StreamlitLand, magic and technology coexist in a delicate balance. The player takes on the role of a young adventurer, just starting out on their journey to save the StreamlitLand from the terrible NNADLBDGD!
 
-# Change log:
+## Change log:
 
 14.01.2023
 - redesigned UX, visuals are now significantly better
