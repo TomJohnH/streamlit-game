@@ -118,7 +118,7 @@ if start:
     col2.metric(label="Mana", value=st.session_state.mana, delta=0)
     col3.metric(label="Gold", value=st.session_state.gold, delta=0)
     style_metric_cards(
-        background_color="#black", border_color="#2b2410", border_left_color="#2b2410"
+        background_color="#black", border_color="#21212f", border_left_color="#21212f"
     )
 
     if st.session_state["sword"] == 1:
