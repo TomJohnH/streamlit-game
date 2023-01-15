@@ -26,3 +26,7 @@ In the StreamlitLand, magic and technology coexist in a delicate balance. The pl
 
 31.12.2022
 - Added focus to input field
+
+## Credits:
+
+- cat.png based on [Cat Playground](https://www.figma.com/community/file/1183737368311504152)
