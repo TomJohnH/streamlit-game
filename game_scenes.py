@@ -21,7 +21,7 @@ def introScene():
     with col1:
         # main_image
         st.image(game_config.image_source["introScene"])
-        st.write("Forrest crossroad")
+        st.write("Forest crossroad")
     with col2:
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
