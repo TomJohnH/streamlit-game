@@ -28,11 +28,17 @@ h1 {
     /* text-shadow: 2px 2px 10px #666; */
 }
 
+/* This probably can be deleted */
 .st-cp,
 .st-co,
 .st-at,
 .st-f4,
 .st-f7 {
+    background-color: #2b2a3a;
+    border-top: 3px solid #5b488b;
+}
+
+div[role="alert"] {
     background-color: #2b2a3a;
     border-top: 3px solid #5b488b;
 }
