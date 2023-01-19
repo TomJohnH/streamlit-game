@@ -6,6 +6,6 @@ image_source = {
     "sheepScene": "images/sheep.jpg",
     "caveScene": "images/cave.jpg",
     "poScene": "images/po.jpg",
-    "dragonScene": "images/dragon.jpg",
+    "dragonScene": "images/NNdragon.png",
     "libraryScene": "images/library.jpg",
 }
