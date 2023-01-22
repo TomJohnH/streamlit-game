@@ -10,6 +10,9 @@ In the StreamlitLand, magic and technology coexist in a delicate balance. The pl
 
 ## Change log:
 
+22.01.2023
+- cat is now animated
+
 14.01.2023
 - redesigned UX, visuals are now significantly better
 - added a cat
