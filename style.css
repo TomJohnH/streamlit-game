@@ -73,7 +73,7 @@ div[role="alert"] {
     left: 0;
     right: 0;
     max-height: 46px;
-    background-color: #0e1117;
+    /* background-color: #0e1117; */
     color: #ccc;
     /* width: 100%; */
     overflow: auto;
