@@ -149,3 +149,15 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # MainMenu {visibility: hidden;}
+
+# ------------ footer  ---------------------------
+
+st.markdown(
+    f"""
+    <div class="bpad" id="bpad">
+    <a href="https://www.buymeacoffee.com/tomjohn" style="color: grey; text-decoration:none;">
+    <div style="justify-content: center;margin:10px; border:solid 2px; ;border-radius:10px; border-color:#21212f; width: fit-content;padding:10px">
+    <img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/coffe.png" style="max-width:20px;margin-right:10px;">
+    Buy me a coffee</a></div></div>""",
+    unsafe_allow_html=True,
+)
