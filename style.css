@@ -72,7 +72,7 @@ div[role="alert"] {
     bottom: 0;
     left: 0;
     right: 0;
-    max-height: 46px;
+    /* max-height: 46px; */
     /* background-color: #0e1117; */
     color: #ccc;
     /* width: 100%; */
