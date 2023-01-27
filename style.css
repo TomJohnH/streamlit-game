@@ -82,3 +82,7 @@ div[role="alert"] {
     justify-content: center;
     display: flex;
 }
+
+.viewerBadge_container__1QS {
+    visibility: hidden;
+}

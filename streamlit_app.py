@@ -144,7 +144,6 @@ components.html(
 hide_streamlit_style = """
             <style>
             footer {visibility: hidden;}
-            .viewerBadge_container__1QSob {visibility: hidden;}
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
