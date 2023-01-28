@@ -10,6 +10,10 @@ In the StreamlitLand, magic and technology coexist in a delicate balance. The pl
 
 ## Change log:
 
+28.01.2023
+- added new visuals
+- added a "buy me a coffee" button
+
 22.01.2023
 - cat is now animated
 

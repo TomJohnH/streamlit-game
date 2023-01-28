@@ -57,11 +57,27 @@ div[role="alert"] {
 } */
 
 
-.image {
+img.image {
     position: absolute;
     top: -46px;
     right: -20px;
     transform: scale(0.5, 0.5);
+}
+
+img.image:hover {
+    animation-duration: 2s;
+    animation-name: cat_anim;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cat_anim {
+    from {
+        filter: drop-shadow(2px 0 0 #0e1117) drop-shadow(0 2px 0 #0e1117) drop-shadow(-2px 0 0 #0e1117) drop-shadow(0 -2px 0 #0e1117);
+    }
+
+    to {
+        filter: drop-shadow(5px 0 0 #5b488b) drop-shadow(0 5px 0 #5b488b) drop-shadow(-5px 0 0 #5b488b) drop-shadow(0 -5px 0 #5b488b);
+    }
 }
 
 .bpad {
@@ -83,6 +99,34 @@ div[role="alert"] {
     display: flex;
 }
 
-.viewerBadge_container__1QSob {
-    visibility: hidden;
+.coffee_btn {
+    justify-content: center;
+    margin: 0px;
+    border: solid 2px;
+    background-color: #0e1117;
+
+    border-radius: 10px 10px 0 0;
+    border-color: #21212f;
+    width: fit-content;
+    padding: 0.425rem;
+
+}
+
+
+.coffee_btn:hover {
+    animation-duration: 2s;
+    animation-name: pulse;
+    animation-fill-mode: forwards;
+    /* background-color: white; */
+}
+
+
+@keyframes pulse {
+    from {
+        border-color: #21212f;
+    }
+
+    to {
+        border-color: #5b488b;
+    }
 }
