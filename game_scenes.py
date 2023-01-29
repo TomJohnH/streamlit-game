@@ -593,7 +593,7 @@ def elfScene():
     with col2:
 
         scene_prompt = """As you journey through the fantastical land, you come across a red-haired elf sorceress. 
-        She is poised and graceful, with piercing green eyes that seem to look straight into your soul. 
+        She is poised and graceful, with piercing blue eyes that seem to look straight into your soul. 
         Her movements are fluid and almost dance-like, as she casts spell after spell with ease. 
         Her power is palpable, and it is clear that she is not someone to be trifled with. 
         She speaks to you in a voice that is both musical and commanding, and you can tell that she is a being of great wisdom and knowledge. 
