@@ -15,13 +15,13 @@ import random
 def introScene():
 
     # possible actions
-    directions = ["left", "right", "help"]
+    directions = ["left", "right", "south", "help"]
 
     col1, col2 = st.columns(2, gap="small")
     with col1:
         # main_image
         st.image(game_config.image_source["introScene"])
-        st.write("Forest crossroad")
+        st.write("Enchanted forest")
     with col2:
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
@@ -31,7 +31,7 @@ def introScene():
             )
         else:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the fork in the forest road.</p></div>',
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the enchanted forest.</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -77,6 +77,11 @@ def introScene():
         if scene_action.lower() == "right":
             st.session_state["scenes_counter"]["intro_counter"] += 1
             st.session_state.place = "caveScene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+        if scene_action.lower() == "south":
+            st.session_state["scenes_counter"]["intro_counter"] += 1
+            st.session_state.place = "southpathScene"
             game_def.temp_clear()
             st.experimental_rerun()
 
@@ -482,6 +487,174 @@ def dragonScene():
                 dir = f'Potential actions: {", ".join(directions)}'
                 stoggle("Help", dir)
                 st.write("")
+
+
+###############################################
+#
+#               southpath Scene
+#
+################################################
+
+
+def southpathScene():
+
+    scene_identifier = "southpath"
+
+    # possible actions
+    directions = ["north", "south", "back", "help"]
+
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # main_image
+        st.image(game_config.image_source[scene_identifier + "Scene"])
+        st.write("South path")
+    with col2:
+
+        scene_prompt = """As you embark on your journey, you find yourself walking south through the enchanted forest. 
+        The air is thick with magic, and the trees tower above you like guardians of the land. 
+        The forest floor is soft and cushioned with fallen leaves and moss, and the rustling of leaves and chirping of creatures fill the air. 
+        Every step you take feels like you're entering deeper into a world of mystery and wonder. 
+        The further you venture, the more you begin to sense that you are not alone. 
+        Shadows dart between trees, and the occasional eerie howl sends shivers down your spine. 
+        This enchanted forest is full of secrets waiting to be uncovered, and you are determined to find them all.
+        """
+
+        # scene text
+        # conditional if you have already seen the scene
+
+        st.markdown(
+            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
+            unsafe_allow_html=True,
+        )
+
+    directions_container = st.empty()
+
+    # caption below input
+    st.caption(game_config.caption_below_input)
+
+    directions_container.text_input(
+        "What to do?",
+        key=scene_identifier + "SceneActions",
+        on_change=game_def.clear,
+        args=[scene_identifier + "SceneActions"],
+    )
+
+    scene_action = st.session_state["temp"]
+
+    if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
+        if scene_action.lower() == "help":
+            st.info(f'Potential actions: {", ".join(directions)}')
+        # --- back ---
+        # ------------
+        if scene_action.lower() == "back":
+            st.session_state.place = "introScene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+        # --- up ---
+        # ------------
+        if scene_action.lower() == "north":
+            st.session_state.place = "introScene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+        if scene_action.lower() == "south":
+            st.session_state.place = "elfScene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+    else:
+        # what should happen if wrong action is selected
+        if scene_action != "":
+            st.info("Please provide right input")
+            dir = f'Potential actions: {", ".join(directions)}'
+            stoggle("Help", dir)
+            st.write("")
+
+
+###############################################
+#
+#               elf Scene
+#
+################################################
+
+
+def elfScene():
+
+    scene_identifier = "elf"
+
+    # possible actions
+    directions = ["north", "back", "help", "accept"]
+
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # main_image
+        st.image(game_config.image_source[scene_identifier + "Scene"])
+        st.write("Elf sorceress")
+    with col2:
+
+        scene_prompt = """As you journey through the fantastical land, you come across a red-haired elf sorceress. 
+        She is poised and graceful, with piercing green eyes that seem to look straight into your soul. 
+        Her movements are fluid and almost dance-like, as she casts spell after spell with ease. 
+        Her power is palpable, and it is clear that she is not someone to be trifled with. 
+        She speaks to you in a voice that is both musical and commanding, and you can tell that she is a being of great wisdom and knowledge. 
+        She tells you that she has been watching you, and that she senses that you are destined for great things. 
+        She offers to assist you on your journey, and you can feel that her magic could prove invaluable.
+        """
+
+        # scene text
+        # conditional if you have already seen the scene
+        if st.session_state["scenes_counter"]["elf_counter"] == 0:
+            st.markdown(
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Sorcerres says: "We should go back."</p></div>',
+                unsafe_allow_html=True,
+            )
+
+    directions_container = st.empty()
+
+    # caption below input
+    st.caption(game_config.caption_below_input)
+
+    directions_container.text_input(
+        "What to do?",
+        key=scene_identifier + "SceneActions",
+        on_change=game_def.clear,
+        args=[scene_identifier + "SceneActions"],
+    )
+
+    scene_action = st.session_state["temp"]
+
+    if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
+        if scene_action.lower() == "help":
+            st.info(f'Potential actions: {", ".join(directions)}')
+        # --- back ---
+        # ------------
+        if scene_action.lower() == "back":
+            st.session_state.place = "southpathScene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+        # --- up ---
+        # ------------
+        if scene_action.lower() == "north":
+            st.session_state.place = "southpathScene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+        if scene_action.lower() == "accept":
+            st.info("Elf sorceress joined the party")
+            st.session_state["scenes_counter"]["elf_counter"] += 1
+    else:
+        # what should happen if wrong action is selected
+        if scene_action != "":
+            st.info("Please provide right input")
+            dir = f'Potential actions: {", ".join(directions)}'
+            stoggle("Help", dir)
+            st.write("")
 
 
 ###############################################

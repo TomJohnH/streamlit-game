@@ -58,6 +58,7 @@ if "scenes_counter" not in st.session_state:
         "intro_counter": 0,
         "cave_counter": 0,
         "trip_counter": 0,
+        "elf_counter": 0,
     }
 
 
@@ -102,6 +103,10 @@ if start:
         game_scenes.introScene()
     elif st.session_state.place == "sheepScene":
         game_scenes.sheepScene()
+    elif st.session_state.place == "southpathScene":
+        game_scenes.southpathScene()
+    elif st.session_state.place == "elfScene":
+        game_scenes.elfScene()
     elif st.session_state.place == "caveScene":
         game_scenes.caveScene()
     elif st.session_state.place == "poScene":
