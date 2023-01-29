@@ -10,6 +10,9 @@ In the StreamlitLand, magic and technology coexist in a delicate balance. The pl
 
 ## Change log:
 
+29.01.2023
+- added new scenes. Now you can create a party with Elf sorceress!
+
 28.01.2023
 - added new visuals
 - added a "buy me a coffee" button
