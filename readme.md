@@ -11,7 +11,7 @@ In the StreamlitLand, magic and technology coexist in a delicate balance. The pl
 ## Change log:
 
 01.02.2023
-- added audio to some scenes 
+- added audio to all main scenes 
 - audio generated using https://beta.elevenlabs.io/speech-synthesis
 
 29.01.2023
