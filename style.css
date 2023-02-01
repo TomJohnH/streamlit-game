@@ -134,3 +134,23 @@ img.image:hover {
 audio {
     max-height: 20px;
 }
+
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-enclosure {
+    background-color: #9c9d9f;
+    box-shadow: none;
+}
+
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display {
+    /* color: black;
+    box-shadow: none;
+    background-color: #9c9d9f; */
+    /* text-shadow: none; */
+}
+
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline {
+    /* background: white; */
+}
