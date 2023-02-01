@@ -130,3 +130,7 @@ img.image:hover {
         border-color: #5b488b;
     }
 }
+
+audio {
+    max-height: 20px;
+}
