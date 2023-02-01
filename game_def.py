@@ -40,4 +40,5 @@ def restart_session():
         "intro_counter": 0,
         "cave_counter": 0,
         "trip_counter": 0,
+        "elf_counter": 0,
     }
