@@ -32,7 +32,7 @@ def introScene():
 
             audio_file = open("audio/intro.mp3", "rb")
             audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format="audio/mp3")
+            st.audio(audio_bytes, format="audio/mpeg")
 
         else:
             st.markdown(
@@ -123,7 +123,7 @@ def sheepScene():
         )
         audio_file = open("audio/sheep.mp3", "rb")
         audio_bytes = audio_file.read()
-        st.audio(audio_bytes, format="audio/mp3")
+        st.audio(audio_bytes, format="audio/mpeg")
 
     # for some reason we have here lenghty interaciton with sheep
 
@@ -242,7 +242,7 @@ def caveScene():
             )
             audio_file = open("audio/cave.mp3", "rb")
             audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format="audio/mp3")
+            st.audio(audio_bytes, format="audio/mpeg")
         else:
             st.markdown(
                 f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the cave.</p></div>',
@@ -322,7 +322,7 @@ def poScene():
         )
         audio_file = open("audio/po.mp3", "rb")
         audio_bytes = audio_file.read()
-        st.audio(audio_bytes, format="audio/mp3")
+        st.audio(audio_bytes, format="audio/mpeg")
 
     directions_container = st.empty()
 
@@ -408,7 +408,7 @@ def dragonScene():
         )
         audio_file = open("audio/dragon.mp3", "rb")
         audio_bytes = audio_file.read()
-        st.audio(audio_bytes, format="audio/mp3")
+        st.audio(audio_bytes, format="audio/mpeg")
 
     # without a sword you will die
     if st.session_state.sword == 0:
@@ -545,7 +545,7 @@ def southpathScene():
         )
         audio_file = open("audio/south.mp3", "rb")
         audio_bytes = audio_file.read()
-        st.audio(audio_bytes, format="audio/mp3")
+        st.audio(audio_bytes, format="audio/mpeg")
 
     directions_container = st.empty()
 
@@ -630,7 +630,7 @@ def elfScene():
             )
             audio_file = open("audio/elf1.mp3", "rb")
             audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format="audio/mp3")
+            st.audio(audio_bytes, format="audio/mpeg")
         else:
             st.markdown(
                 f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Sorcerres says: "We should go back."</p></div>',
@@ -638,7 +638,7 @@ def elfScene():
             )
             audio_file = open("audio/elf2.mp3", "rb")
             audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format="audio/mp3")
+            st.audio(audio_bytes, format="audio/mpeg")
 
     directions_container = st.empty()
 
