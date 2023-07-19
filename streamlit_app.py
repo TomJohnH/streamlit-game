@@ -6,7 +6,6 @@ import time
 import random
 import game_scenes
 
-
 # additional components from https://extras.streamlit.app/
 
 # -------------- app config ---------------
@@ -22,7 +21,7 @@ def local_css(file_name):
 ###############################################
 #
 #
-#           START VARIABLES DEFINITION
+#           VARIABLES DEFINITION
 #
 #
 ################################################
@@ -86,10 +85,14 @@ player_name_container = st.empty()
 player_name_container.text_input(
     "State your name and hit enter to start the game", key="player_name"
 )
+main_text_container = st.empty()
+main_text_container.caption("Create your own adventure visit [GitHub](https://github.com/TomJohnH/streamlit-dungeon)")
 
 
 if st.session_state.player_name != "":
     player_name_container.empty()
+
+    main_text_container.empty()
     start = True
 
 # START THE GAME
