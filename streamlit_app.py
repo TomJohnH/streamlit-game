@@ -5,12 +5,13 @@ from streamlit_extras.metric_cards import style_metric_cards
 import time
 import random
 import game_scenes
+from PIL import Image
 
 # additional components from https://extras.streamlit.app/
 
 # -------------- app config ---------------
 
-st.set_page_config(page_title="StreamlitLand Adventure RPG", page_icon="🐲")
+st.set_page_config(page_title="Laura's 보물찾기", page_icon="🐲")
 
 # define external css
 def local_css(file_name):
@@ -73,26 +74,71 @@ if "scenes_counter" not in st.session_state:
 
 local_css("style.css")
 
+# ---------------FX--------------------
+def ReduceGapFromPageTop(wch_section = 'main page'):
+    if wch_section == 'main page':
+        st.markdown(" <style> div[class^='block-container'] { padding-top: 3rem; } </style> ", unsafe_allow_html=True)  # reduce gap from page top
+    
+    elif wch_section == 'sidebar':
+        st.markdown(" <style> div[class^='st-emotion-cache-10oheav'] { padding-top: 0rem; } </style> ", unsafe_allow_html=True)
+horizontal_bar = "<hr style='margin-top: 0; margin-bottom: 0; height: 1px; border: 1px solid #635985;'><br>"    # thin divider line
 # ----------------- game start --------
+# with st.sidebar:
+#     ReduceGapFromPageTop('sidebar')
+#     st.subheader("🖼️ 로라의 보물찾기")
+#     st.markdown(horizontal_bar, True)
 
+#     # sidebarlogo = Image.open('sidebarlogo.jpg').resize((300, 420))
+#     #sidebarlogo = Image.open('sidebarlogo.jpg').resize((300, 375))
+#     #st.image(sidebarlogo, use_column_width='auto')
+
+# ViewHelp
+ReduceGapFromPageTop()
+
+############
 
 welcome = st.empty()
-welcome.title("Welcome to StreamlitLand, adventurer!")
-
-# hero base statistics
 
 player_name_container = st.empty()
 player_name_container.text_input(
-    "State your name and hit enter to start the game", key="player_name"
-)
-main_text_container = st.empty()
-main_text_container.caption("Create your own adventure visit [GitHub](https://github.com/TomJohnH/streamlit-dungeon)")
+        "자 게임을 시작하기 전, 너의 이름을 적어줘!", key="player_name"
+    )
+
+
+#main_text_container = st.empty()
+#main_text_container.caption("Create your own adventure visit [GitHub](https://github.com/TomJohnH/streamlit-dungeon)")
+#dsfd
+with welcome.container():
+    first = st.empty()
+    first.title("🐮로라의 보물찾기🕹️")
+#st.set_page_config(page_title = "PixMatch", page_icon="🕹️", layout = "wide", initial_sidebar_state = "expanded")
+# hero base statistics
+    hlp_dtl = f"""<span style="font-size: 26px;">
+    <ol>
+    <li style="font-size:15px";>각 퀘스트에 맞게 사람들을 찾아간다.</li>
+    <li style="font-size:15px";>퀘스트를 성공할 시 그 다음 스테이지로 넘어간다.</li>
+    </ol></span>""" 
+
+    sc1, sc2 = st.columns(2)
+    random.seed()
+    vpth = "/Users/yerin/laura/streamlit-game/images/Laura"
+    GameHelpImg = vpth + random.choice(["1.jpeg", "2.jpeg"])
+    GameHelpImg = Image.open(GameHelpImg).resize((550, 550))
+    sc2.image(GameHelpImg, use_column_width='auto')
+
+    sc1.subheader('규칙:쉬워~~~~')
+    sc1.markdown(horizontal_bar, True)
+    sc1.markdown(hlp_dtl, unsafe_allow_html=True)
+    st.markdown(horizontal_bar, True)
+
+    author_dtl = "<strong>Happy Playing: 😎 Yerin Han: yerinhan97@gmail.com</strong>"
+    st.markdown(author_dtl, unsafe_allow_html=True)
+
 
 
 if st.session_state.player_name != "":
     player_name_container.empty()
-
-    main_text_container.empty()
+    #welcome.empty()
     start = True
 
 # START THE GAME
@@ -102,6 +148,8 @@ if start:
     # delete welcome
     welcome.empty()
 
+
+    st.empty()
     if st.session_state.place == "introScene":
         game_scenes.introScene()
     elif st.session_state.place == "sheepScene":
