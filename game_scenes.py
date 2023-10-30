@@ -15,35 +15,35 @@ import random
 def introScene():
 
     # possible actions
-    directions = ["1997","help"]
+    directions = ["20231103","help"]
 
     col1, col2 = st.columns(2, gap="small")
     with col1:
         # main_image
         st.image(game_config.image_source["introScene"])
-        st.write("Enchanted forest")
+        st.write("로라가 젤 좋아하는 파란색 음료인가 보오")
     with col2:
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/laura1.jpeg" class="image"><p>환영해~~~~, {st.session_state.player_name}, 보물찾기에 온걸 환영해 그대 :) 각 스테이지마다 퀴즈와 질문이 있거덩 잘 맞춰봥 ㅋㅋㅋㅋ</p></div>',
+                f'<div class="fantasy-container"><img src="/Users/yerin/laura/streamlit-game/images/laura1.jpeg" class="image"><p>{st.session_state.player_name}, 보물찾기에 온걸 환영해🥳🥳🥳 :) 각 스테이지마다 퀘스트가 있거덩 잘 따라가보렴ㅎㅎ</p></div>',
                 unsafe_allow_html=True,
             )
 
-            audio_file = open("audio/intro.mp3", "rb")
+            audio_file = open("audio/intro.mp3", "rb") ## happy b-day
             audio_bytes = audio_file.read()
             st.audio(audio_bytes, format="audio/mpeg")
 
         else:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the enchanted forest.</p></div>',
+                f'<div class="fantasy-container"><img src="/Users/yerin/laura/streamlit-game/images/laura1.jpeg"  class="image"><p>You are back at the enchanted forest.</p></div>',
                 unsafe_allow_html=True,
             )
 
     directions_container = st.empty()
 
     # caption below input
-    st.caption(game_config.caption_below_input)
+    #st.caption(game_config.caption_below_input)
 
     # input container
     # there are a few things going on here:
@@ -51,12 +51,12 @@ def introScene():
     # 2. we trigger callback which copies input to temp. callback is called with argument that is passed to clear function
     # 3. text input is cleared
     directions_container.text_input(
-        "로라의 출생년도는?",
+        "오늘날짜는?",
         key="introSceneActions",
         on_change=game_def.clear,
         args=["introSceneActions"],
     )
-
+    st.info('예시처럼 입력해줘: 20230101')
     # this is probably redundancy
     scene_action = st.session_state["temp"]
 
@@ -70,12 +70,16 @@ def introScene():
             st.info(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
         # ------------
-        if scene_action.lower() == "1997":
+        if scene_action.lower() == "20231103":
+            st.info(f'지령1: 테퍼로 가서 하람언니를 찾아')
+            # gr_spc = '&nbsp;' * 53
+            # if st.button(f"🕹️ New Game {gr_spc}"): pass
             st.session_state["scenes_counter"]["intro_counter"] += 1
             st.session_state.place = (
                 "sheepScene"  # we are moving our character to other scene
             )
-            game_def.temp_clear()  # we are claring text input
+            
+            game_def.temp_clear()  # we are clearing text input
             st.experimental_rerun()  # rerun is streamlit specific and rerund the app
 
     else:
@@ -103,7 +107,7 @@ def sheepScene():
     with col1:
         # scene image
         st.image(game_config.image_source["sheepScene"])
-        st.write("Magical sheep")
+        st.write("아마 어렸을 적부터 운전을 참 잘했던 것 같소")
     with col2:
         st.markdown(
             f'<div class="fantasy-container" style="min-height:258.17px"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it.</p></div>',
