@@ -15,7 +15,7 @@ import random
 def introScene():
 
     # possible actions
-    directions = ["left", "right", "south", "help"]
+    directions = ["1997","help"]
 
     col1, col2 = st.columns(2, gap="small")
     with col1:
@@ -26,7 +26,7 @@ def introScene():
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/laura1.jpeg" class="image"><p>환영해~~~~, {st.session_state.player_name}, 보물찾기에 온걸 환영해 그대 :) 각 스테이지마다 퀴즈와 질문이 있거덩 잘 맞춰봥 ㅋㅋㅋㅋ</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -51,7 +51,7 @@ def introScene():
     # 2. we trigger callback which copies input to temp. callback is called with argument that is passed to clear function
     # 3. text input is cleared
     directions_container.text_input(
-        "What to do?",
+        "로라의 출생년도는?",
         key="introSceneActions",
         on_change=game_def.clear,
         args=["introSceneActions"],
@@ -70,30 +70,18 @@ def introScene():
             st.info(f'Potential actions: {", ".join(directions)}')
         # --- LEFT ---
         # ------------
-        if scene_action.lower() == "left":
+        if scene_action.lower() == "1997":
             st.session_state["scenes_counter"]["intro_counter"] += 1
             st.session_state.place = (
                 "sheepScene"  # we are moving our character to other scene
             )
             game_def.temp_clear()  # we are claring text input
             st.experimental_rerun()  # rerun is streamlit specific and rerund the app
-        # --- RIGHT ---
-        # ------------
-        if scene_action.lower() == "right":
-            st.session_state["scenes_counter"]["intro_counter"] += 1
-            st.session_state.place = "caveScene"
-            game_def.temp_clear()
-            st.experimental_rerun()
-        if scene_action.lower() == "south":
-            st.session_state["scenes_counter"]["intro_counter"] += 1
-            st.session_state.place = "southpathScene"
-            game_def.temp_clear()
-            st.experimental_rerun()
 
     else:
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("Please provide right input")
+            st.info("로라야 틀렸어ㅓㅓㅓ 좀만 더 생각해보렴 후후")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -109,7 +97,7 @@ def introScene():
 def sheepScene():
 
     # possible actions
-    directions = ["left", "right", "back", "pet", "help"]
+    directions = ["isfj", "help"]
 
     col1, col2 = st.columns(2, gap="small")
     with col1:
@@ -134,7 +122,7 @@ def sheepScene():
 
     # clearing text_input was suprisingly hard to figure out
     directions_container.text_input(
-        "What to do?",
+        "당신의 MBTI는?",
         key="sheepSceneActions",
         on_change=game_def.clear,
         args=["sheepSceneActions"],
@@ -147,69 +135,18 @@ def sheepScene():
         # ------------
         if scene_action.lower() == "help":
             st.info(f'Potential actions: {", ".join(directions)}')
-        # --- LEFT ---
-        # ------------
-        if scene_action.lower() == "left":
-            st.write("There is nothing there")
-        # --- BACK OR RIGHT ---
-        # ---------------------
-        if scene_action.lower() == "back" or scene_action.lower() == "right":
-            st.session_state.place = "introScene"
+
+        if scene_action.lower() == "isfj":
+
+            st.session_state.place = "caveScene"
             game_def.temp_clear()
             st.experimental_rerun()
-        # ---PET THE SHEEP ---
-        # ---------------------
-        if scene_action.lower() == "pet":
-
-            # progress bar for petting sheep
-            my_bar = st.empty()
-            my_bar.progress(0)
-
-            for percent_complete in range(100):
-                time.sleep(0.01)
-                my_bar.progress(percent_complete + 1)
-            my_bar.empty()
-
-            # --- Sheep shares his wealth ---
-            random_gold = random.randint(4, 8)
-
-            if st.session_state.sheep_anger < 5:
-
-                st.success(
-                    "Sheep goes: streeeeaaamlit and gives you "
-                    + str(random_gold)
-                    + " coins"
-                )
-                st.session_state.gold = st.session_state.gold + random_gold
-
-            # --- Sheep becomes angrier ---
-            st.session_state.sheep_anger = st.session_state.sheep_anger + 1
-
-            if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
-                st.success("Sheep is becoming a little bit anoyed ")
-
-            # --- too much pets ---
-            if st.session_state.sheep_anger == 5:
-                st.success(
-                    "Sheep has enough of pets and bites your arm off. You lose 50 HP!"
-                )
-                st.session_state.health = st.session_state.health - 50
-            if st.session_state.sheep_anger > 5 and st.session_state.sheep_anger < 10:
-                random_number_of_dots = random.randint(3, 20)
-                annoyed_sheep = (
-                    "".join("." for i in range(random_number_of_dots)) + "no"
-                )
-                st.success(annoyed_sheep)
-            if st.session_state.sheep_anger >= 10:
-                st.success(
-                    'Sheep states in an unusually low, human voice: "Violence is not an answer, but it could be if you don\'t stop"'
-                )
 
     else:
 
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("Please provide right input")
+            st.info("이걸 틀릴리는 없지 후후")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -280,13 +217,6 @@ def caveScene():
             st.session_state.place = "introScene"
             game_def.temp_clear()
             st.experimental_rerun()
-        # --- up ---
-        # ------------
-        if scene_action.lower() == "up":
-            st.session_state["scenes_counter"]["cave_counter"] += 1
-            st.session_state.place = "poScene"
-            game_def.temp_clear()
-            st.experimental_rerun()
 
     else:
         # what should happen if wrong action is selected
@@ -350,11 +280,6 @@ def poScene():
             game_def.temp_clear()
             st.experimental_rerun()
         # --- RIGHT OR BACK ---
-        # ------------
-        if scene_action.lower() == "right" or scene_action.lower() == "back":
-            st.session_state.place = "caveScene"
-            game_def.temp_clear()
-            st.experimental_rerun()
         # --- BUY ---
         # ------------
         if scene_action.lower() == "buy":
