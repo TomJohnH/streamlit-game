@@ -1,3 +1,4 @@
 .streamlit/secrets.toml
-/home/ubuntu/laura/streamlit-game/images
+/home/ubuntu/streamlit-game/images
+/home/ubuntu/streamlit-game/audio
 __pycache__/

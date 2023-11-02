@@ -4,6 +4,7 @@ import game_config
 import game_def
 import time
 import random
+import os
 
 ###############################################
 #
@@ -99,7 +100,7 @@ def sheepScene():
             그런 MBTI라고 할 수 있져 근데 솔지키 I가 맞는지 의문이 듭니다. 크레이지 서머 레이디 ❤️ </p></div>',
             unsafe_allow_html=True,
         )
-        audio_file = open("/home/ubuntu/laura/streamlit-game/audio/학교종이.mp3", "rb")
+        audio_file = open("/home/ubuntu/streamlit-game/audio/school.mp3", "rb")
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="audio/mpeg")
 
@@ -168,9 +169,9 @@ def caveScene():
                 난 또 이상한 포즈를 취하고 있고ㅎㅎㅎ 믕지 유동이 잘 나온 사진으로 골라봤엉</p></div>',
                 unsafe_allow_html=True,
             )
-            # audio_file = open("audio/cave.mp3", "rb")
-            # audio_bytes = audio_file.read()
-            # st.audio(audio_bytes, format="audio/mpeg")
+            audio_file = open("audio/sun.mp3", "rb")
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format="audio/mpeg")
         else:
             st.markdown(
                 f'<div class="fantasy-container"><img src="/home/ubuntu/laura/streamlit-game/images/Laura/IMG_2961-removebg-preview.png" class="image"><p>You are back at the cave.</p></div>',
@@ -182,9 +183,10 @@ def caveScene():
     # caption below input
     st.caption("숫자만 입력부탁해요")
     if st.session_state["scenes_counter"]["trip_counter"] == 0:
+        pass
         ##st.success("You feel exhausted and lose -5HP")
-        st.session_state.health = st.session_state.health - 5
-        st.session_state["scenes_counter"]["trip_counter"] = 1
+        # st.session_state.health = st.session_state.health - 5
+        # st.session_state["scenes_counter"]["trip_counter"] = 1
 
     directions_container.text_input(
         "당신은 오늘부로 몇 살이 되었나요?",
@@ -242,7 +244,7 @@ def poScene():
             유어 페이보릿 음악들 선별함 들어보33 천천히 계속 들어보소</p></div>',
             unsafe_allow_html=True,
         )
-        audio_file = open("audio/태양 여러분.mp3", "rb")
+        audio_file = open("audio/kitsch.mp3", "rb")
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="audio/mpeg")
 
@@ -497,13 +499,13 @@ def libraryScene():
     scene_identifier = "library"
 
     # possible actions
-    directions = ["1", "2", "3", "help"]
+    directions = ["전준모", "help"]
     st.title('지령7: 3층 올라가는 계단을 한 번 구석 구석 살펴보시오')
     col1, col2 = st.columns(2, gap="small")
     with col1:
         # main_image
         st.image(game_config.image_source[scene_identifier + "Scene"])
-        st.write("Elf sorceress")
+        st.write("이 때는 너보다 작았구나 너의 동생 ㅋ")
     with col2:
 
         scene_prompt = """
@@ -539,8 +541,8 @@ def libraryScene():
             st.info(f'Potential actions: {", ".join(directions)}')
         # --- back ---
         # ------------
-        if scene_action.lower() == "1":
-            st.session_state.place = "step9"
+        if scene_action.lower() == "전준모":
+            st.session_state.place = "step9Scene"
             game_def.temp_clear()
             st.experimental_rerun()
 
@@ -562,16 +564,16 @@ def libraryScene():
 
 def step9():
 
-    scene_identifier = "step9"
+    scene_identifier = "step9Scene"
 
     # possible actions
-    directions = ["EXO", "help"]
-    st.title('지령8: 치폴레 먹었던 책상을 함 찾아보시오')
+    directions = ["exo", "help"]
+    st.title('지령8: 치폴레 먹었던 책상을 함 찾아보시오!')
     col1, col2 = st.columns(2, gap="small")
     with col1:
         # main_image
-        st.image(game_config.image_source[scene_identifier + "Scene"])
-        st.write("Elf sorceress")
+        st.image(game_config.image_source[scene_identifier])
+        st.write("믕지 26짤 + 그 전날 워더 졸업식 행벅한 이틀")
     with col2:
 
         scene_prompt = """아니 우리 커플템 짱 많은거 같아. 벌써 몇 개여ㅕㅕㅕ진짜 태어나서 첨으로 이렇게 우정탬들 소장마니 해본 거 처음이여\
@@ -611,15 +613,15 @@ def step9():
             st.info(f'Potential actions: {", ".join(directions)}')
         # --- back ---
         # ------------
-        if scene_action.lower() == "EXO":
-            st.session_state.place = "step10"
+        if scene_action.lower() == "exo":
+            st.session_state.place = "step10Scene"
             game_def.temp_clear()
             st.experimental_rerun()
 
     else:
         # what should happen if wrong action is selected
         if scene_action != "":
-            st.info("너가 엑소엘이었다는 걸 알았을 때")
+            st.info("너가 엑소엘이었다는 걸 알았을 때, 내적 친밀감 더커짐 ㅋㅋ")
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
@@ -633,7 +635,7 @@ def step9():
 
 def step10():
 
-    scene_identifier = "library"
+    scene_identifier = "step10Scene"
 
     # possible actions
     directions = ["핑크", "help"]
@@ -641,7 +643,7 @@ def step10():
     col1, col2 = st.columns(2, gap="small")
     with col1:
         # main_image
-        st.image(game_config.image_source[scene_identifier + "Scene"])
+        st.image(game_config.image_source[scene_identifier])
         st.write("Elf sorceress")
     with col2:
 
@@ -682,8 +684,8 @@ def step10():
             st.info(f'Potential actions: {", ".join(directions)}')
         # --- back ---
         # ------------
-        if scene_action.lower() == "1":
-            st.session_state.place = "southpathScene"
+        if scene_action.lower() == "핑크":
+            st.session_state.place = "step11Scene"
             game_def.temp_clear()
             st.experimental_rerun()
 
@@ -694,6 +696,74 @@ def step10():
             dir = f'Potential actions: {", ".join(directions)}'
             stoggle("Help", dir)
             st.write("")
+
+def step11():
+
+    scene_identifier = "step11Scene"
+
+    # possible actions
+    directions = ["테퍼", "help"]
+    st.title('지령10: 한예린한테 전화를 거시오 (페탐이던 카톡전화던 다 받아드림)')
+    col1, col2 = st.columns(2, gap="small")
+    with col1:
+        # main_image
+        st.image(game_config.image_source[scene_identifier])
+        st.write("Elf sorceress")
+    with col2:
+
+        scene_prompt = """아니 우리 커플템 짱 많은거 같아. 벌써 몇 개여ㅕㅕㅕ진짜 태어나서 첨으로 이렇게 우정탬들 소장마니 해본 거 처음이여\
+        여하튼 몬가 그 추억탬들 하나하나 저 때 뭐하고 놀았는 지 기억나서 좋은 듯 ㅋㅋㅋㅋㅋㅋㅋ
+        특히 나에게 꾀나 충격을 주었던 은지가 팔찌 주기 전 있었던 자동차 사태
+        은지야 스미마센
+        그 운전자석 차문은 잘 있니? 허허
+        """
+
+        if st.session_state["scenes_counter"]["elf_counter"] == 0:
+            st.markdown(
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
+                unsafe_allow_html=True,
+            )
+            audio_file = open("audio/shivers.mp3", "rb")
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format="audio/mpeg")
+
+    directions_container = st.empty()
+
+    # caption below input
+    st.caption("한글로 입력 부탁")
+
+    directions_container.text_input(
+        "현재 위치함 건물의 이름은?",
+        key=scene_identifier + "SceneActions",
+        on_change=game_def.clear,
+        args=[scene_identifier + "SceneActions"],
+    )
+
+    scene_action = st.session_state["temp"]
+
+    if scene_action.lower() in directions:
+        # --- HELP ---
+        # ------------
+        if scene_action.lower() == "help":
+            st.info(f'Potential actions: {", ".join(directions)}')
+        # --- back ---
+        # ------------
+        if scene_action.lower() == "테퍼":
+            st.session_state.place = "step12Scene"
+            game_def.temp_clear()
+            st.experimental_rerun()
+
+    else:
+        # what should happen if wrong action is selected
+        if scene_action != "":
+            st.info("영어로는 Tepper허지만 ㅐ인지 ㅔ인지 헷갈릴 수 있으므로 ㅔ 인거 알려드림")
+            dir = f'Potential actions: {", ".join(directions)}'
+            stoggle("Help", dir)
+            st.write("")
+
+# author_dtl = "<strong>Happy Playing: 😎 Yerin Han: yerinhan97@gmail.com</strong>"
+# st.markdown(author_dtl, unsafe_allow_html=True)
+
 
 # author_dtl = "<strong>Happy Playing: 😎 Yerin Han: yerinhan97@gmail.com</strong>"
 # st.markdown(author_dtl, unsafe_allow_html=True)

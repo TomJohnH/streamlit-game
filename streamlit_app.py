@@ -6,6 +6,7 @@ import time
 import random
 import game_scenes
 from PIL import Image
+import os
 
 # additional components from https://extras.streamlit.app/
 
@@ -107,13 +108,15 @@ with welcome.container():
     <li style="font-size:15px";>각 퀘스트에 맞게 사람들을 찾아간다.</li>
     <li style="font-size:15px";>퀘스트를 성공할 시 그 다음 스테이지로 넘어간다.</li>
     <li style="font-size:15px";>마지막 스테이지까지 가보숑~~~~</li>
+    <li style="font-size:15px";>답을 정 모르겠으면 help 를 답으로 쓰면 답이 나오지롱~~~</li>
     </ol></span>""" 
 
     sc1, sc2 = st.columns(2)
-    random.seed()
-    vpth = "/home/ubuntu/laura/streamlit-game/images/Laura/"
-    GameHelpImg = vpth + random.choice(["1.jpeg", "2.jpeg"])
-    GameHelpImg = Image.open("/home/ubuntu/laura/streamlit-game/images/Laura/IMG_2961-removebg-preview.png").resize((550, 550))
+    # random.seed()
+    # vpth = "/home/ubuntu/streamlit-game/images/nuki/"
+    # img = os.listdir("/home/ubuntu/streamlit-game/images/nuki")
+    # GameHelpImg = vpth + random.choice(img)
+    GameHelpImg = Image.open("/home/ubuntu/streamlit-game/images/Untitled.png").resize((550, 550))
     sc2.image(GameHelpImg, use_column_width='auto')
 
     sc1.subheader('규칙')
@@ -158,13 +161,25 @@ if start:
         game_scenes.dragonScene()
     elif st.session_state.place == "libraryScene":
         game_scenes.libraryScene()
+    elif st.session_state.place == "step9Scene":
+        game_scenes.step9()
+    elif st.session_state.place == "step10Scene":
+        game_scenes.step10()
+    elif st.session_state.place == "step11Scene":
+        game_scenes.step11()
 
     # player stats
 
     c1,c2,c3 = st.columns(3)
-    c1.image(Image.open("/home/ubuntu/laura/streamlit-game/images/Laura/840AAF07-DC09-45BB-8873-E8810051CA4A_1_105_c-removebg-preview.png").resize((550, 550)))
-    c2.image(Image.open("/home/ubuntu/laura/streamlit-game/images/Laura/IMG_2962-removebg-preview.png").resize((550, 550)))
-    c3.image(Image.open("/home/ubuntu/laura/streamlit-game/images/Laura/5BB15CD9-6A51-4E35-B00E-4FFC8DAEF85E_1_105_c-removebg-preview.png").resize((550, 550)))
+    random.seed()
+    vpth = "/home/ubuntu/streamlit-game/images/nuki/"
+    img = os.listdir("/home/ubuntu/streamlit-game/images/nuki")
+    GameHelpImg1 = vpth + random.choice(img)
+    GameHelpImg2 = vpth + random.choice(img)
+    GameHelpImg3 = vpth + random.choice(img)
+    c1.image(Image.open(GameHelpImg1).resize((550, 550)))
+    c2.image(Image.open(GameHelpImg2).resize((550, 550)))
+    c3.image(Image.open(GameHelpImg3).resize((550, 550)))
 
 
 
