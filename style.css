@@ -1,25 +1,27 @@
 .fantasy-container {
     position: relative;
-    background-color: #21212f;
+    background-color: #f782c9;
     color: #fff;
     padding: 20px;
     border-radius: 5px;
-    border-top: 3px solid #5b488b;
+    border-top: 3px solid #6a46c6;
     /* box-shadow: 0 0 5px #999; */
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
+    text-align: center;
 
 }
 
 .fantasy-container p {
-    text-shadow: 0 0 3px #999;
+    text-shadow: 0 0 3px #f782c9;
     margin: 0px;
     font-size: 1rem;
+    text-align: center;
 }
 
 h1 {
-    border-top: 3px solid #5b488b;
-    background-color: #21212f;
+    border-top: 3px solid #b39becc1;
+    background-color: #5959d9;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -34,20 +36,20 @@ h1 {
 .st-at,
 .st-f4,
 .st-f7 {
-    background-color: #2b2a3a;
-    border-top: 3px solid #5b488b;
+    background-color: #f782c9;
+    border-top: 3px solid #967cd9;
 }
 
 div[role="alert"] {
-    background-color: #2b2a3a;
-    border-top: 3px solid #5b488b;
+    background-color: #f782c9;
+    border-top: 3px solid #967cd9;
 }
 
 .st-cm,
 .st-cl,
 .st-ck,
 .st-cj {
-    border-color: #5b488b;
+    border-color: #967cd9;
 }
 
 /* @media (max-width:600px) {
@@ -72,7 +74,7 @@ img.image:hover {
 
 @keyframes cat_anim {
     from {
-        filter: drop-shadow(2px 0 0 #0e1117) drop-shadow(0 2px 0 #0e1117) drop-shadow(-2px 0 0 #0e1117) drop-shadow(0 -2px 0 #0e1117);
+        filter: drop-shadow(2px 0 0 #376ad1) drop-shadow(0 2px 0 #153982) drop-shadow(-2px 0 0 #547ed2) drop-shadow(0 -2px 0 #0e1117);
     }
 
     to {
@@ -103,12 +105,13 @@ img.image:hover {
     justify-content: center;
     margin: 0px;
     border: solid 2px;
-    background-color: #0e1117;
+    background-color: #f782c9;
 
     border-radius: 10px 10px 0 0;
-    border-color: #21212f;
+    border-color: #f782c9;
     width: fit-content;
     padding: 0.425rem;
+    text-align: center;
 
 }
 
@@ -123,11 +126,11 @@ img.image:hover {
 
 @keyframes pulse {
     from {
-        border-color: #21212f;
+        border-color: #967cd9;
     }
 
     to {
-        border-color: #5b488b;
+        border-color: #967cd9;
     }
 }
 
@@ -137,7 +140,7 @@ audio {
 
 audio::-webkit-media-controls-panel,
 audio::-webkit-media-controls-enclosure {
-    background-color: #9c9d9f;
+    background-color: #78e961;
     box-shadow: none;
 }
 
