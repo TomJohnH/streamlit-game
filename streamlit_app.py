@@ -105,10 +105,14 @@ with welcome.container():
 # hero base statistics
     hlp_dtl = f"""<span style="font-size: 26px;">
     <ol>
-    <li style="font-size:15px";>각 퀘스트에 맞게 사람들을 찾아간다.</li>
-    <li style="font-size:15px";>퀘스트를 성공할 시 그 다음 스테이지로 넘어간다.</li>
+    <li style="font-size:15px";>각 퀘스트에 맞게 사진 조각 혹은 사람들을 찾아간다.</li>
+    <li style="font-size:15px";>퀴즈를 풀어야 그 다음 스테이지 미션이 주어져요</li>
+    <li style="font-size:15px";>각 스테이지에 사람이 있을 경우, 인증샷을 찍는다.</li>
     <li style="font-size:15px";>마지막 스테이지까지 가보숑~~~~</li>
-    <li style="font-size:15px";>답을 정 모르겠으면 help 를 답으로 쓰면 답이 나오지롱~~~</li>
+    <li style="font-size:15px";>답을 정 모르겠으면 help를 입력 -> 밑에 답이 나오지롱~~~</li>
+    <li style="font-size:15px";>퀘스트 수행하면서 찾아야 되는 사람들은 모두 KCCP 사람들입니당~~</li>
+    <li style="font-size:15px";>단,, 새로고침을 하면 처음으로 가지고, 뒤로 가기는 안되요 (제가 기술이 딸려서,,)-스미마센</li>
+    <li style="font-size:15px";>허지만, 첫 페이지로 돌아간다 하더라도 당황하지 말고, 첫 문제부터 천천히 푸심 되여👌🏻👌🏻</li>
     </ol></span>""" 
 
     sc1, sc2 = st.columns(2)
@@ -167,19 +171,38 @@ if start:
         game_scenes.step10()
     elif st.session_state.place == "step11Scene":
         game_scenes.step11()
-
+    elif st.session_state.place == "step12Scene":
+        game_scenes.step12()
+    elif st.session_state.place == "step13Scene":
+        game_scenes.step13()
+    elif st.session_state.place == "step14Scene":
+        game_scenes.step14()
+    elif st.session_state.place == "step15Scene":
+        game_scenes.step15()
+    elif st.session_state.place == "step16Scene":
+        game_scenes.step16()
+    elif st.session_state.place == "step17Scene":
+        game_scenes.step17()
+    elif st.session_state.place == "step18Scene":
+        game_scenes.step18()
+    elif st.session_state.place == "step19Scene":
+        game_scenes.step19()
+    elif st.session_state.place == "step20Scene":
+        game_scenes.step20()
+    elif st.session_state.place == "step21Scene":
+        game_scenes.step21()
+    elif st.session_state.place == "last":
+        game_scenes.last()
     # player stats
 
     c1,c2,c3 = st.columns(3)
     random.seed()
     vpth = "/home/ubuntu/streamlit-game/images/nuki/"
     img = os.listdir("/home/ubuntu/streamlit-game/images/nuki")
-    GameHelpImg1 = vpth + random.choice(img)
-    GameHelpImg2 = vpth + random.choice(img)
-    GameHelpImg3 = vpth + random.choice(img)
-    c1.image(Image.open(GameHelpImg1).resize((550, 550)))
-    c2.image(Image.open(GameHelpImg2).resize((550, 550)))
-    c3.image(Image.open(GameHelpImg3).resize((550, 550)))
+    GameHelpImg1, GameHelpImg2, GameHelpImg3 =  random.sample(img, 3)
+    c1.image(Image.open(vpth +GameHelpImg1).resize((550, 550)))
+    c2.image(Image.open(vpth +GameHelpImg2).resize((550, 550)))
+    c3.image(Image.open(vpth +GameHelpImg3).resize((550, 550)))
 
 
 
