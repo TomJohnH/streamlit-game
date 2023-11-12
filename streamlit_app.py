@@ -163,9 +163,6 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.markdown(
     f"""
     <div class="bpad" id="bpad">
-    <a href="https://www.buymeacoffee.com/tomjohn" style="color: grey; text-decoration:none;">
-    <div class="coffee_btn" >
-    <img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/coffe.png" style="max-width:20px;margin-right:10px;">
-    Buy me a coffee</a></div></div>""",
+    </div>""",
     unsafe_allow_html=True,
 )
