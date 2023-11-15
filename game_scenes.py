@@ -237,7 +237,7 @@ def caveScene():
         # conditional if you have already seen the scene
         if st.session_state["scenes_counter"]["cave_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>After hours of traversing the alien landscape, you come upon the entrance of a cavernous structure made of extraterrestrial rock. According to the records in your astronaut guide, this cave is known as The Echoing Abyss. It is said that those who dare to explore its depths might uncover the secrets of this mysterious exoplanet. A strange luminescence emanates from the cavern, casting an otherworldly glow. The air within shivers with an unknown energy. Your spacesuit's sensors flicker with erratic readings, indicating the presence of undiscovered elements. Do you have the courage to step into the unknown and explore the depths of The Echoing Abyss?</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>After hours of traversing the alien landscape, you come upon the entrance of a cavernous structure made of extraterrestrial rock. According to the records in your astronaut guide, this cave is known as The Echoing Abyss. It is said that those who dare to explore its depths might uncover the secrets of this mysterious exoplanet. A strange luminescence emanates from the cavern, casting an otherworldly glow. The air within shivers with an unknown energy. Your spacesuit\'s sensors flicker with erratic readings, indicating the presence of undiscovered elements. Do you have the courage to step into the unknown and explore the depths of The Echoing Abyss?</p></div>',
                 unsafe_allow_html=True,
             )
             audio_file = open("audio/cave.mp3", "rb")
@@ -413,7 +413,7 @@ def dragonScene():
     # without a sword you will die
     if st.session_state.sword == 0:
         st.success(
-            "Dragonoid uses matrix multiplication and you get hit in the head by loose neuron. You don't have anything to defend yourself."
+            "Dragonoid uses matrix multiplication and you get hit in the head by loose neuron. You don\'t have anything to defend yourself."
         )
         st.success(
             "Unfortunatelly this is where your adventure ends. But could you have done something differently?"
@@ -709,7 +709,7 @@ def libraryScene():
     st.title("Congratulations " + st.session_state.player_name + "!")
 
     st.markdown(
-        f'<div class="fantasy-container"><p>You enter the heart of the alien vault, and to your surprise, there's no hoard of gold but an advanced extraterrestrial technology repository – from a distant galaxy!<br><br> The power to harness and wield this cosmic knowledge is now in your hands. Do you choose to share this intergalactic repo for the benefit of others or keep it closely guarded, using its potential to create the most extraordinary applications the universe has ever seen? <br> As you contemplate, you recall the wisdom echoed through the cosmos, 'With great power comes great responsibility.' Though originally spoken to a spider, the words hold true for you now. The possibilities presented by Goddess's cosmic capabilities both amaze and humble you.<br> <br> The fate of this otherworldly knowledge is yours to decide. Will you be a beacon of sharing and collaboration, or will you embark on a solo journey to create the most awe-inspiring app in the vastness of the cosmic expanse?</div>',
+        f'<div class="fantasy-container"><p>You enter the heart of the alien vault, and to your surprise, there is no hoard of gold but an advanced extraterrestrial technology repository – from a distant galaxy!<br><br> The power to harness and wield this cosmic knowledge is now in your hands. Do you choose to share this intergalactic repo for the benefit of others or keep it closely guarded, using its potential to create the most extraordinary applications the universe has ever seen? <br> As you contemplate, you recall the wisdom echoed through the cosmos, 'With great power comes great responsibility.' Though originally spoken to a spider, the words hold true for you now. The possibilities presented by Goddess's cosmic capabilities both amaze and humble you.<br> <br> The fate of this otherworldly knowledge is yours to decide. Will you be a beacon of sharing and collaboration, or will you embark on a solo journey to create the most awe-inspiring app in the vastness of the cosmic expanse?</div>',
         unsafe_allow_html=True,7
     )
     st.success("Thank you for taking your time!")
