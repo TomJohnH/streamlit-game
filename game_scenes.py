@@ -101,7 +101,7 @@ def introScene():
 
 ###############################################
 #
-#               sheep Scene
+#               Unicorn Scene
 #
 ################################################
 
@@ -157,7 +157,7 @@ def sheepScene():
             st.session_state.place = "introScene"
             game_def.temp_clear()
             st.experimental_rerun()
-        # ---PET THE SHEEP ---
+        # ---PET THE Unicorn ---
         # ---------------------
         if scene_action.lower() == "pet":
 
@@ -299,7 +299,7 @@ def caveScene():
 
 ###############################################
 #
-#               po Scene
+#               Astro Scene
 #
 ################################################
 
@@ -403,7 +403,7 @@ def dragonScene():
     with col2:
         # scene text
         st.markdown(
-            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Oh no! PM was wrong about going left! It\'s a Neural Network AI Deep Learning Big Data Generated Dragon! (NNADLBDGD)</p></div>',
+            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Oh no! PM was wrong about going left! It\'s a Neural Network, AI, Deep Learning, Cloud Generated Dragonoid Monster! (NNADLBDGD)</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/dragon.mp3", "rb")
@@ -413,7 +413,7 @@ def dragonScene():
     # without a sword you will die
     if st.session_state.sword == 0:
         st.success(
-            "Dragon uses matrix multiplication and you get hit in the head by loose neuron. You don't have anything to defend yourself."
+            "Dragonoid uses matrix multiplication and you get hit in the head by loose neuron. You don't have anything to defend yourself."
         )
         st.success(
             "Unfortunatelly this is where your adventure ends. But could you have done something differently?"
@@ -426,7 +426,7 @@ def dragonScene():
     else:
 
         st.success(
-            "Fortunatelly you have a sword so you can defend yourself from the dragon! Do you wanna fight it?"
+            "Equipped with advanced alien weaponry you bought back then, you face a menacing Alien Monster. It roars with otherworldly echoes, and its alien physiology makes it a formidable opponent. Do you stand your ground and fight, or attempt to evade its powerful attacks?"
         )
         directions_container = st.empty()
         st.caption(
@@ -463,7 +463,7 @@ def dragonScene():
                 if st.session_state.dragon_alive == 1:
 
                     st.success(
-                        "Your matrix multiplication skills are better than dragons. Who would have guessed that these algebra classes would be useful after all?"
+                        "Your tensor matrix manipulation skills are better than dragonoid Alien. Who would have guessed that these algebra classes would be useful after all?"
                     )
                     damage = random.randint(5, 10)
                     st.success("Dragon loses " + str(damage) + " HP")
@@ -474,19 +474,19 @@ def dragonScene():
 
                     damage = random.randint(0, 8)
                     st.success(
-                        "Dragon hits you back and you lose " + str(damage) + " HP"
+                        "Dragonoid hits you back and you lose " + str(damage) + " HP"
                     )
 
                     st.session_state["health"] = st.session_state["health"] - damage
                     if st.session_state["dragon_hp"] <= 0:
                         st.session_state.dragon_alive = 0
-                        st.success("DRAGON IS DEAD or at least to you")
+                        st.success("DRAGONOID IS DEAD or at least to you are safe for now")
                 else:
-                    st.success("DRAGON IS DEAD or at least to you")
+                    st.success("Dragonoid Alien is defeated")
 
             if scene_action.lower() == "up":
                 if st.session_state.dragon_alive == 1:
-                    st.success("Dragon is still alive. Fight or flight!")
+                    st.success("Dragonoid Alien is still alive. Fight or flight!")
                 else:
                     st.session_state.place = "libraryScene"
                     game_def.temp_clear()
@@ -527,13 +527,16 @@ def southpathScene():
         st.write("South path")
     with col2:
 
-        scene_prompt = """As you embark on your journey, you find yourself walking south through the enchanted forest. 
-        The air is thick with magic, and the trees tower above you like guardians of the land. 
-        The forest floor is soft and cushioned with fallen leaves and moss, and the rustling of leaves and chirping of creatures fill the air. 
-        Every step you take feels like you're entering deeper into a world of mystery and wonder. 
-        The further you venture, the more you begin to sense that you are not alone. 
-        Shadows dart between trees, and the occasional eerie howl sends shivers down your spine. 
-        This enchanted forest is full of secrets waiting to be uncovered, and you are determined to find them all.
+        scene_prompt = ""As you traverse the southern region of this alien world, you find yourself amidst a forest unlike any seen on Earth. 
+        The air hums with the energy of a highly evolved civilization of ethereal beings. 
+        Tall, crystalline structures rise like beacons, emanating a soft glow that bathes the area in an otherworldly light.
+        The ground beneath your feet is a mosaic of responsive panels, adjusting to your every step with a gentle hum. 
+        The rustling leaves and chirping creatures are not of the natural world but rather manifestations of the energy that permeates this realm. 
+        Every movement seems to be observed by unseen entities, and the occasional pulse of energy sends shivers down your spine.
+        You realize that you have entered the domain of an advanced civilization of spirits, 
+        beings who have transcended the boundaries of the physical and embraced a form of existence beyond our understanding. 
+        The forest holds secrets of their wisdom and power, and you are determined to uncover the mysteries that lie within. Will you boldly step forward into the heart of this advanced spirit civilization, 
+        or tread cautiously, aware that your every action might be under the scrutiny of these ethereal beings?
         """
 
         # scene text
@@ -612,13 +615,16 @@ def elfScene():
         st.write("Elf sorceress")
     with col2:
 
-        scene_prompt = """As you journey through the fantastical land, you come across a red-haired elf sorceress. 
-        She is poised and graceful, with piercing blue eyes that seem to look straight into your soul. 
-        Her movements are fluid and almost dance-like, as she casts spell after spell with ease. 
-        Her power is palpable, and it is clear that she is not someone to be trifled with. 
-        She speaks to you in a voice that is both musical and commanding, and you can tell that she is a being of great wisdom and knowledge. 
-        She tells you that she has been watching you, and that she senses that you are destined for great things. 
-        She offers to assist you on your journey, and you can feel that her magic could prove invaluable.
+        scene_prompt = """As you traverse the fantastical land, you come across a celestial being unlike any you've encountered before. 
+        A blonde-haired elf goddess, poised and graceful, stands before you. 
+        Her eyes, a mesmerizing shade of violet, seem to penetrate into the depths of your soul.
+        Her movements are as fluid and enchanting as a cosmic dance, and with a wave of her hand, she manipulates the energies around her. 
+        It's evident that her power transcends the natural order of the universe. 
+        Her voice, a harmonious blend of music and authority, resonates with ancient wisdom and knowledge that surpasses mortal understanding.
+        
+        The elf goddess reveals that she has been observing your journey and senses a destiny of cosmic proportions awaiting you. 
+        With a benevolent smile, she offers her assistance. You can feel the cosmic magic emanating from her, a force that could prove invaluable in the challenges that lie ahead. 
+        Will you accept the guidance and cosmic power of this ethereal being as you continue your interstellar journey?.
         """
 
         # scene text
@@ -703,11 +709,9 @@ def libraryScene():
     st.title("Congratulations " + st.session_state.player_name + "!")
 
     st.markdown(
-        f'<div class="fantasy-container"><p>You enter the dragon vault, but instead of gold, you find a Streamlit documentation library!<br><br>All the power is now in your hands. Would you make the documentation available for others? Or keep it only for yourself and make the sickest app in the world? The possibilities offered by Streamlit amaze you.<br><br>One man once said that with great power comes great responsibility (he was talking to a spider, but whatever).<br><br>Use your new power wisely.</div>',
-        unsafe_allow_html=True,
+        f'<div class="fantasy-container"><p>You enter the heart of the alien vault, and to your surprise, there's no hoard of gold but an advanced extraterrestrial technology repository – from a distant galaxy!<br><br> The power to harness and wield this cosmic knowledge is now in your hands. Do you choose to share this intergalactic repo for the benefit of others or keep it closely guarded, using its potential to create the most extraordinary applications the universe has ever seen? <br> As you contemplate, you recall the wisdom echoed through the cosmos, 'With great power comes great responsibility.' Though originally spoken to a spider, the words hold true for you now. The possibilities presented by Goddess's cosmic capabilities both amaze and humble you.<br> <br> The fate of this otherworldly knowledge is yours to decide. Will you be a beacon of sharing and collaboration, or will you embark on a solo journey to create the most awe-inspiring app in the vastness of the cosmic expanse?</div>',
+        unsafe_allow_html=True,7
     )
-    st.success("Thank you for playing SteamlitLand Adventure RPG!")
-    st.info("If you liked the game you can like ❤️ the community post and share it 🙂")
-    st.info("Credits: Created by @TomJohn")
-    st.info("Top players: knight @Courtland_Goldengate")
+    st.success("Thank you for taking your time!")
+    st.info("If you liked the game you can check our repo and share it 🙂")
     st.caption("beta version")
