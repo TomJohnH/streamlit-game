@@ -527,7 +527,7 @@ def southpathScene():
         st.write("South path")
     with col2:
 
-        scene_prompt = ""As you traverse the southern region of this alien world, you find yourself amidst a forest unlike any seen on Earth. 
+        scene_prompt = """As you traverse the southern region of this alien world, you find yourself amidst a forest unlike any seen on Earth. 
         The air hums with the energy of a highly evolved civilization of ethereal beings. 
         Tall, crystalline structures rise like beacons, emanating a soft glow that bathes the area in an otherworldly light.
         The ground beneath your feet is a mosaic of responsive panels, adjusting to your every step with a gentle hum. 
