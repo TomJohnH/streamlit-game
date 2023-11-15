@@ -21,7 +21,7 @@ def introScene():
     with col1:
         # main_image
         st.image(game_config.image_source["introScene"])
-        st.write("Enchanted forest")
+        st.write("Enchanted Land")
     with col2:
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
@@ -115,7 +115,7 @@ def sheepScene():
     with col1:
         # scene image
         st.image(game_config.image_source["sheepScene"])
-        st.write("Magical sheep")
+        st.write("Magical Unicorn")
     with col2:
         st.markdown(
             f'<div class="fantasy-container" style="min-height:258.17px"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>As you traverse the alien landscape, you encounter a majestic creature with a shimmering horn – a unicorn native to this extraterrestrial realm. The air is filled with an otherworldly glow, and the unicorn seems to emit a magical aura. Do you approach and try to communicate with this mythical being?</p></div>',
@@ -231,7 +231,7 @@ def caveScene():
     with col1:
         # main_image
         st.image(game_config.image_source["caveScene"])
-        st.write("Dark cave")
+        st.write("Mysterious Abyss")
     with col2:
         # scene text
         # conditional if you have already seen the scene
@@ -398,7 +398,7 @@ def dragonScene():
     col1, col2 = st.columns(2, gap="small")
     with col1:
         st.image(game_config.image_source["dragonScene"])
-        st.write("Dragon's lair")
+        st.write("Dragonoid's lair")
 
     with col2:
         # scene text
