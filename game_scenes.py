@@ -26,7 +26,7 @@ def introScene():
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Welcome, {st.session_state.player_name},  to a fantastical realm of mystery and wonder. The path that brought you here has been long and winding - the decisions you\'ve made throughout your life have led you here. Now is the time to choose your path with caution and care, for the fate of this realm is in your hands. From the mystical fields of the west, to the dark caves of the east, this world awaits your exploration. But beware, for dangerous creatures and ancient magic lurk around every corner. May fortune be on your side as you embark on this journey.</p></div>',
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Welcome, {st.session_state.player_name}, to a distant and unexplored exoplanet. Your spacecraft has crash-landed, into an enchanted forest and you find yourself in a world of unknown wonders and dangers. May fortune be on your side as you embark on this journey.</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -36,7 +36,7 @@ def introScene():
 
         else:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the enchanted forest.</p></div>',
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the enchanted alien forest.</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -118,7 +118,7 @@ def sheepScene():
         st.write("Magical sheep")
     with col2:
         st.markdown(
-            f'<div class="fantasy-container" style="min-height:258.17px"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You see a sheep grazing in a grassy meadow. A gentle mist hangs in the air, and a mystical glow surrounds the area. As you approach the sheep, you notice a magical aura emanating from it. Go on, try to pet it.</p></div>',
+            f'<div class="fantasy-container" style="min-height:258.17px"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>As you traverse the alien landscape, you encounter a majestic creature with a shimmering horn – a unicorn native to this extraterrestrial realm. The air is filled with an otherworldly glow, and the unicorn seems to emit a magical aura. Do you approach and try to communicate with this mythical being?</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/sheep.mp3", "rb")
@@ -176,7 +176,7 @@ def sheepScene():
             if st.session_state.sheep_anger < 5:
 
                 st.success(
-                    "Sheep goes: streeeeaaamlit and gives you "
+                    "Unicorn goes: Super Saiyan mode and gives you "
                     + str(random_gold)
                     + " coins"
                 )
@@ -186,12 +186,12 @@ def sheepScene():
             st.session_state.sheep_anger = st.session_state.sheep_anger + 1
 
             if st.session_state.sheep_anger > 2 and st.session_state.sheep_anger < 6:
-                st.success("Sheep is becoming a little bit anoyed ")
+                st.success("Unicorn is becoming a little bit anoyed ")
 
             # --- too much pets ---
             if st.session_state.sheep_anger == 5:
                 st.success(
-                    "Sheep has enough of pets and bites your arm off. You lose 50 HP!"
+                    "Unicorn had enough of pets and bites your arm off. You lose 50 HP!"
                 )
                 st.session_state.health = st.session_state.health - 50
             if st.session_state.sheep_anger > 5 and st.session_state.sheep_anger < 10:
@@ -202,7 +202,7 @@ def sheepScene():
                 st.success(annoyed_sheep)
             if st.session_state.sheep_anger >= 10:
                 st.success(
-                    'Sheep states in an unusually low, human voice: "Violence is not an answer, but it could be if you don\'t stop"'
+                    'Unicorn whisper through telepathy: "Violence is not an answer, but it could be if you don\'t stop"'
                 )
 
     else:
@@ -237,7 +237,7 @@ def caveScene():
         # conditional if you have already seen the scene
         if st.session_state["scenes_counter"]["cave_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>After walking for 2 hours through the enchanted forest, you stumble across a mysterious cave. Legends say that if you stare into the abyss, the abyss will stare back at you. A faint glimmer of light seems to be emanating from the depths of the cave. An eerie chill runs down your spine as you walk closer, but you can\'t help but be curious of the unknown. Are you brave enough to enter the depths of this mysterious cave, despite the fear of the unknown darkness?</p></div>',
+                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>After hours of traversing the alien landscape, you come upon the entrance of a cavernous structure made of extraterrestrial rock. According to the records in your astronaut's guide, this cave is known as 'The Echoing Abyss.' It is said that those who dare to explore its depths might uncover the secrets of this mysterious exoplanet. A strange luminescence emanates from the cavern, casting an otherworldly glow. The air within shivers with an unknown energy. Your spacesuit's sensors flicker with erratic readings, indicating the presence of undiscovered elements. Do you have the courage to step into the unknown and explore the depths of The Echoing Abyss?</p></div>',
                 unsafe_allow_html=True,
             )
             audio_file = open("audio/cave.mp3", "rb")
@@ -317,7 +317,7 @@ def poScene():
     with col2:
         # scene text
         st.markdown(
-            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>In the dark, you see a young man. He was once a renowned product manager, who worked diligently to make the world a better place. But one day, he was attempting to add comments to Jira, when suddenly, something went wrong and his work didn\'t save. As a result, he was cursed to sell swords in a mystical land, far away from his home. He mutters that the price of 30 gold feels right, and then he offers a warning - if you go right, you will meet a dangerous dragon. He reminds you to keep left if you want to find the exit.</p></div>',
+            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>In the dim light of the alien world, you come across a disheveled figure wearing a high-tech exosuit. This individual was once a skilled intergalactic explorer, tirelessly working to uncover the secrets of the cosmos. However, a catastrophic malfunction in their advanced navigation system stranded them on this uncharted exoplanet. The stranded explorer, once adept at discovering new frontiers, now survives by trading rare extraterrestrial artifacts. Among their collection, a peculiar energy weapon catches your eye. The explorer, with a grim determination, mentions that this advanced weapon is the key to securing passage through the hazardous terrains of this alien world. They propose a trade - the weapon in exchange for a vital resource needed for spacecraft repairs, 30 Golds. As you listen to the offer, the eerie sounds of unknown creatures echo in the distance. Will you accept the deal and risk the unknown dangers, or explore other options on this enigmatic exoplanet?</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/po.mp3", "rb")
