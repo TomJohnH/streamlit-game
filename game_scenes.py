@@ -26,7 +26,7 @@ def introScene():
         # scene text
         if st.session_state["scenes_counter"]["intro_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Welcome, {st.session_state.player_name}, to a distant and unexplored exoplanet. Your spacecraft has crash-landed, into an enchanted forest and you find yourself in a world of unknown wonders and dangers. May fortune be on your side as you embark on this journey.</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>Welcome, {st.session_state.player_name}, to a distant and unexplored exoplanet. Your spacecraft has crash-landed, into an enchanted forest and you find yourself in a world of unknown wonders and dangers. May fortune be on your side as you embark on this journey.</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -36,7 +36,7 @@ def introScene():
 
         else:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the enchanted alien forest.</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>You are back at the enchanted alien forest.</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -118,7 +118,7 @@ def sheepScene():
         st.write("Magical sheep")
     with col2:
         st.markdown(
-            f'<div class="fantasy-container" style="min-height:258.17px"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>As you traverse the alien landscape, you encounter a majestic creature with a shimmering horn – a unicorn native to this extraterrestrial realm. The air is filled with an otherworldly glow, and the unicorn seems to emit a magical aura. Do you approach and try to communicate with this mythical being?</p></div>',
+            f'<div class="fantasy-container" style="min-height:258.17px"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>As you traverse the alien landscape, you encounter a majestic creature with a shimmering horn – a unicorn native to this extraterrestrial realm. The air is filled with an otherworldly glow, and the unicorn seems to emit a magical aura. Do you approach and try to communicate with this mythical being?</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/sheep.mp3", "rb")
@@ -237,7 +237,7 @@ def caveScene():
         # conditional if you have already seen the scene
         if st.session_state["scenes_counter"]["cave_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>After hours of traversing the alien landscape, you come upon the entrance of a cavernous structure made of extraterrestrial rock. According to the records in your astronaut's guide, this cave is known as 'The Echoing Abyss.' It is said that those who dare to explore its depths might uncover the secrets of this mysterious exoplanet. A strange luminescence emanates from the cavern, casting an otherworldly glow. The air within shivers with an unknown energy. Your spacesuit's sensors flicker with erratic readings, indicating the presence of undiscovered elements. Do you have the courage to step into the unknown and explore the depths of The Echoing Abyss?</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>After hours of traversing the alien landscape, you come upon the entrance of a cavernous structure made of extraterrestrial rock. According to the records in your astronaut's guide, this cave is known as 'The Echoing Abyss.' It is said that those who dare to explore its depths might uncover the secrets of this mysterious exoplanet. A strange luminescence emanates from the cavern, casting an otherworldly glow. The air within shivers with an unknown energy. Your spacesuit's sensors flicker with erratic readings, indicating the presence of undiscovered elements. Do you have the courage to step into the unknown and explore the depths of The Echoing Abyss?</p></div>',
                 unsafe_allow_html=True,
             )
             audio_file = open("audio/cave.mp3", "rb")
@@ -245,7 +245,7 @@ def caveScene():
             st.audio(audio_bytes, format="audio/mpeg")
         else:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>You are back at the cave.</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>You are back at the cave.</p></div>',
                 unsafe_allow_html=True,
             )
 
@@ -317,7 +317,7 @@ def poScene():
     with col2:
         # scene text
         st.markdown(
-            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>In the dim light of the alien world, you come across a disheveled figure wearing a high-tech exosuit. This individual was once a skilled intergalactic explorer, tirelessly working to uncover the secrets of the cosmos. However, a catastrophic malfunction in their advanced navigation system stranded them on this uncharted exoplanet. The stranded explorer, once adept at discovering new frontiers, now survives by trading rare extraterrestrial artifacts. Among their collection, a peculiar energy weapon catches your eye. The explorer, with a grim determination, mentions that this advanced weapon is the key to securing passage through the hazardous terrains of this alien world. They propose a trade - the weapon in exchange for a vital resource needed for spacecraft repairs, 30 Golds. As you listen to the offer, the eerie sounds of unknown creatures echo in the distance. Will you accept the deal and risk the unknown dangers, or explore other options on this enigmatic exoplanet?</p></div>',
+            f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>In the dim light of the alien world, you come across a disheveled figure wearing a high-tech exosuit. This individual was once a skilled intergalactic explorer, tirelessly working to uncover the secrets of the cosmos. However, a catastrophic malfunction in their advanced navigation system stranded them on this uncharted exoplanet. The stranded explorer, once adept at discovering new frontiers, now survives by trading rare extraterrestrial artifacts. Among their collection, a peculiar energy weapon catches your eye. The explorer, with a grim determination, mentions that this advanced weapon is the key to securing passage through the hazardous terrains of this alien world. They propose a trade - the weapon in exchange for a vital resource needed for spacecraft repairs, 30 Golds. As you listen to the offer, the eerie sounds of unknown creatures echo in the distance. Will you accept the deal and risk the unknown dangers, or explore other options on this enigmatic exoplanet?</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/po.mp3", "rb")
@@ -403,7 +403,7 @@ def dragonScene():
     with col2:
         # scene text
         st.markdown(
-            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Oh no! PM was wrong about going left! It\'s a Neural Network, AI, Deep Learning, Cloud Generated Dragonoid Monster! (NNADLBDGD)</p></div>',
+            f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>Oh no! PM was wrong about going left! It\'s a Neural Network, AI, Deep Learning, Cloud Generated Dragonoid Monster! (NNADLBDGD)</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/dragon.mp3", "rb")
@@ -543,7 +543,7 @@ def southpathScene():
         # conditional if you have already seen the scene
 
         st.markdown(
-            f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
+            f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
             unsafe_allow_html=True,
         )
         audio_file = open("audio/south.mp3", "rb")
@@ -631,7 +631,7 @@ def elfScene():
         # conditional if you have already seen the scene
         if st.session_state["scenes_counter"]["elf_counter"] == 0:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>{scene_prompt}</p></div>',
                 unsafe_allow_html=True,
             )
             audio_file = open("audio/elf1.mp3", "rb")
@@ -639,7 +639,7 @@ def elfScene():
             st.audio(audio_bytes, format="audio/mpeg")
         else:
             st.markdown(
-                f'<div class="fantasy-container"><img src="https://raw.githubusercontent.com/TomJohnH/streamlit-game/main/images/cat.gif" class="image"><p>Sorcerres says: "We should go back."</p></div>',
+                f'<div class="fantasy-container"><img src="https://github.com/Mattral/streamlit-Adventure/tree/main/images/cat.gif" class="image"><p>Sorcerres says: "We should go back."</p></div>',
                 unsafe_allow_html=True,
             )
             audio_file = open("audio/elf2.mp3", "rb")
