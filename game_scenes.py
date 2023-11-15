@@ -710,8 +710,7 @@ def libraryScene():
 
     st.markdown(
         f'<div class="fantasy-container"><p> You enter the heart of the alien vault, and to your surprise, there is no hoard of gold but an advanced extraterrestrial technology repository – from a distant galaxy!<br><br> The power to harness and wield this cosmic knowledge is now in your hands. Do you choose to share this intergalactic repo for the benefit of others or keep it closely guarded, using its potential to create the most extraordinary applications the universe has ever seen? <br><br> As you contemplate, you recall the wisdom echoed through the cosmos, \'With great power comes great responsibility.\' Though originally spoken to a spider, the words hold true for you now. The possibilities presented by Goddess\'s cosmic capabilities both amaze and humble you.<br> <br> The fate of this otherworldly knowledge is yours to decide. Will you be a beacon of sharing and collaboration, or will you embark on a solo journey to create the most awe-inspiring app in the vastness of the cosmic expanse? </div>',
-        unsafe_allow_html=True,7
-    )
+        unsafe_allow_html=True,)
     st.success("Thank you for taking your time!")
     st.info("If you liked the game you can check our repo and share it 🙂")
     st.caption("beta version")
