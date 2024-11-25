@@ -1,2 +1,2 @@
 streamlit_extras==0.2.4
-streamlit==1.26.0
+streamlit==1.25.0
